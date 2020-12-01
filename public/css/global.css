@@ -1,0 +1,13 @@
+.fas, .fa {
+    cursor: pointer;
+}
+
+.popover{
+    max-width: 100% !important; /* Max Width of the popover (depending on the container!) */
+}
+pre.json-code {outline: 1px solid #ccc; padding: 5px; margin: 5px; }
+pre.json-code .string { color: green; }
+pre.json-code .number { color: darkorange; }
+pre.json-code .boolean { color: blue; }
+pre.json-code .null { color: magenta; }
+pre.json-code .key { color: red; }
