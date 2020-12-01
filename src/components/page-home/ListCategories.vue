@@ -11,8 +11,8 @@
             </a>
             <model-info-popover
                 v-bind="{
-                    info: firstCategory,
-                    apiUrl: 'https://www.google.com/',
+                    responseData: firstCategory,
+                    apiUrl: $apiLinkType.listCategoriesApiLink,
                     title: 'Category Model'
                 }"
             />
