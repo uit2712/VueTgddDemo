@@ -15,5 +15,5 @@ export default {
 </script>
 
 <style>
-@import '../../../public/css/home.css';
+/* @import '../../../public/css/home.css'; */
 </style>
