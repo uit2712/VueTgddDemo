@@ -1,19 +1,25 @@
 <template>
-    <header>
-        <list-categories/>
-    </header>
+    <fragment>
+        <header-vue/>
+        <home-banner/>
+    </fragment>
 </template>
 
 <script>
-import ListCategories from './ListCategories.vue';
+import HeaderVue from './header/Header.vue';
+import HomeBanner from './HomeBanner.vue';
 
 export default {
     components: {
-        ListCategories,
+        HeaderVue,
+        HomeBanner,
     }
 }
 </script>
 
 <style>
-/* @import '../../../public/css/home.css'; */
+@import '../../../public/css/home.css';
+/* @import '../../../public/css/top-header.css';
+@import '../../../public/css/list-categories.css';
+@import '../../../public/css/header.css'; */
 </style>

@@ -21,3 +21,21 @@ export function syntaxHighlight(json) {
         return '<span class="' + cls + '">' + match + '</span>';
     });
 }
+
+export function getAllCssFrom() {
+    return [...document.styleSheets]
+        .map((styleSheet) => {
+            try {
+                return [...styleSheet.cssRules]
+                    .map((rule) => rule.cssText)
+                    .join('');
+            } catch (e) {
+                console.log(
+                    'Access to stylesheet %s is denied. Ignoring...',
+                    styleSheet.href
+                );
+            }
+        })
+        .filter(Boolean)
+        .join('\n');
+}
