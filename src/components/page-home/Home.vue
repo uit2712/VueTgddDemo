@@ -3,6 +3,7 @@
         <header-vue/>
         <section>
             <home-banner/>
+            <home-news/>
         </section>
     </fragment>
 </template>
@@ -10,11 +11,13 @@
 <script>
 import HeaderVue from './header/Header.vue';
 import HomeBanner from './home-banner/HomeBanner.vue';
+import HomeNews from './home-news/HomeNews.vue';
 
 export default {
     components: {
         HeaderVue,
         HomeBanner,
+        HomeNews,
     }
 }
 </script>

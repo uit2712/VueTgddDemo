@@ -1,23 +1,27 @@
 <template>
-    <div class="wrap-nav">
-        <nav>
-            <a
-                v-for="(category, index) in LIST_CATEGORIES"
-                :key="index"
-                href="/dtdd"
-                :title="category.title"
-            >
-                <i :class="[category.iconClassName]"></i><b>{{ category.text }}</b>
-            </a>
-            <model-info-popover
-                v-bind="{
-                    responseData: firstCategory,
-                    apiUrl: $apiLinkType.listCategoriesApiLink,
-                    title: 'Category Model'
-                }"
-            />
-        </nav>
-    </div>
+    <fragment>
+        <div class="wrap-nav">
+            <nav>
+                <a
+                    v-for="(category, index) in LIST_CATEGORIES"
+                    :key="index"
+                    href="/dtdd"
+                    :title="category.title"
+                >
+                    <i :class="[category.iconClassName]"></i><b>{{ category.text }}</b>
+                </a>
+            </nav>
+        </div>
+        <model-info-popover
+            id="list-categories"
+            v-bind="{
+                responseData: firstCategory,
+                apiUrl: $apiLinkType.listCategoriesApiLink,
+                title: 'Category Model',
+                iconCustomStyle: 'position: absolute; top: 52px; right: 195px; z-index:9',
+            }"
+        />
+    </fragment>
 </template>
 
 <script>

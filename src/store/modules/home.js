@@ -1,4 +1,4 @@
-import { getListCategories, getListHomeBannerDescriptions, getListHomeBanners } from '@/common/functions/page-home-functions';
+import { getListCategories, getListHomeBannerDescriptions, getListHomeBanners, getListTechNews } from '@/common/functions/page-home-functions';
 import {
     FETCH_LIST_CATEGORIES,
     FETCH_LIST_HOME_BANNERS,
@@ -9,12 +9,16 @@ import {
     SET_LIST_CATEGORIES,
     SET_LIST_HOME_BANNERS,
     SET_LIST_HOME_BANNER_DESCRIPTIONS,
+    FETCH_LIST_TECH_NEWS,
+    SET_LIST_TECH_NEWS,
+    LIST_TECH_NEWS,
 } from '@/store/module-types/home';
 
 export const state = {
     listCategories: [],
     listHomeBanners: [],
     listHomeBannerDescriptions: [],
+    listTechNews: [],
 }
 
 export const getters = {
@@ -26,6 +30,9 @@ export const getters = {
     },
     [LIST_HOME_BANNER_DESCRIPTIONS](state) {
         return state.listHomeBannerDescriptions;
+    },
+    [LIST_TECH_NEWS](state) {
+        return state.listTechNews;
     }
 }
 
@@ -44,6 +51,11 @@ export const mutations = {
         if (Array.isArray(payload?.values) === true) {
             state.listHomeBannerDescriptions = payload.values;
         }
+    },
+    [SET_LIST_TECH_NEWS](state, payload) {
+        if (Array.isArray(payload?.values) === true) {
+            state.listTechNews = payload.values;
+        }
     }
 }
 
@@ -59,6 +71,10 @@ export const actions = {
     [FETCH_LIST_HOME_BANNER_DESCRIPTIONS]({ commit }) {
         const data = getListHomeBannerDescriptions();
         commit(SET_LIST_HOME_BANNER_DESCRIPTIONS, { values: data });
+    },
+    [FETCH_LIST_TECH_NEWS]({ commit }) {
+        const data = getListTechNews();
+        commit(SET_LIST_TECH_NEWS, { values: data });
     }
 }
 

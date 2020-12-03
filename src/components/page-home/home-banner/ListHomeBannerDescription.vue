@@ -1,12 +1,13 @@
 <template>
     <fragment>
         <model-info-popover
+            id="list-banner-description"
             v-bind="{
                 responseData: firstDescription,
                 apiUrl: $apiLinkType.listHomeBannerDescriptionsApiLink,
-                title: 'Home Banner Description Model'
+                title: 'Home Banner Description Model',
+                iconCustomStyle: 'position:absolute; bottom: 0; right:0; z-index:9',
             }"
-            style="position:absolute; bottom: 0; right:0; z-index:9"
         />
         <div
             id="sync2"

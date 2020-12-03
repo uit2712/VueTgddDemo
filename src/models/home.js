@@ -13,3 +13,16 @@ export const homeBannerImageModel = {
 export const homeBannerDescriptionModel = {
     text: '',
 }
+
+export const newsModel = {
+    imageUrl: '',
+    postUrl: '',
+    title: '',
+    createdTime: '',
+}
+
+export const specificNewsModel = {
+    categoryName: '',
+    categoryLink: '',
+    listPosts: [newsModel],
+}

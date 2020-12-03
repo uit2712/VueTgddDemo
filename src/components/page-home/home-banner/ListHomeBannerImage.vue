@@ -49,12 +49,13 @@
             </div>
         </div>
         <model-info-popover
+            id="list-banner-image"
             v-bind="{
                 responseData: firstHomeBanner,
                 apiUrl: $apiLinkType.listHomeBannerImagesApiLink,
-                title: 'Home Banner Image Model'
+                title: 'Home Banner Image Model',
+                iconCustomStyle: 'position:absolute; top: 0; right:0;z-index:9',
             }"
-            style="position:absolute; top: 0; right:0;z-index:9"
         />
     </fragment>
 </template>
