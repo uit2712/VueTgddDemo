@@ -1,13 +1,15 @@
 <template>
     <fragment>
         <header-vue/>
-        <home-banner/>
+        <section>
+            <home-banner/>
+        </section>
     </fragment>
 </template>
 
 <script>
 import HeaderVue from './header/Header.vue';
-import HomeBanner from './HomeBanner.vue';
+import HomeBanner from './home-banner/HomeBanner.vue';
 
 export default {
     components: {

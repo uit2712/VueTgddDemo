@@ -58,15 +58,9 @@
             crossorigin="anonymous"
         ></script>
         <script>
-            // Initialize tooltip component
-            $(function() {
-                $('[data-toggle="tooltip"]').tooltip();
-            });
-
-            // Initialize popover component
-            $(function() {
+            $(document).ready(function() {
                 $('[data-toggle="popover"]').popover({
-                    html: true,
+                    html: true
                 });
             });
         </script>

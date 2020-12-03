@@ -1,8 +1,8 @@
 <template>
     <i
         class="fas fa-info-circle"
-        data-toggle="popover"
         :title="title"
+        data-toggle="popover"
         data-placement="bottom"
         :data-content="`Link api: <a href='${apiUrl}' target='_blank'>${apiUrl}</a><br/>${requestDataHtml}<br/>${responseDataHtml}`"
     ></i>

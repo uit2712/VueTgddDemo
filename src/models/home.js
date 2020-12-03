@@ -3,3 +3,13 @@ export const categoryModel = {
     title: '',
     text: '',
 }
+
+export const homeBannerImageModel = {
+    url: '',
+    description: '',
+    link: '',
+}
+
+export const homeBannerDescriptionModel = {
+    text: '',
+}
