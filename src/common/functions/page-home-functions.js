@@ -1,4 +1,4 @@
-import { categoryModel, homeBannerDescriptionModel, homeBannerImageModel, specificNewsModel, twoBannersModel } from "@/models/home";
+import { categoryModel, homeBannerDescriptionModel, homeBannerImageModel, promotionBannerModel, specificNewsModel, twoBannersModel } from "@/models/home";
 
 export function getListCategories() {
     let sampleData = categoryModel;
@@ -79,4 +79,14 @@ export function getTwoBanners() {
     result.push({...sampleData});
 
     return result;
+}
+
+export function getPromotionBanner() {
+    let sampleData = promotionBannerModel;
+    sampleData = {
+        imageUrl: 'https://cdn.tgdd.vn/2020/12/banner/1200-75-1200x75.png',
+        description: 'Mừng Trung Thu[break]Giảm Đến 49%',
+        link: 'https://www.thegioididong.com/flashsale',
+    };
+    return sampleData;
 }

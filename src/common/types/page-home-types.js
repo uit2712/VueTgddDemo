@@ -4,4 +4,5 @@ export const apiLinkType = {
     listHomeBannerDescriptionsApiLink: 'https://www.google.com/',
     listTwoBannersApiLink: 'https://www.google.com/',
     specificNewsApiLink: 'https://www.google.com/',
+    promotionBannerApiLink: 'https://www.google.com/',
 }

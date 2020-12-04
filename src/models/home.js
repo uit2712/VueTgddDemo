@@ -31,3 +31,9 @@ export const twoBannersModel = {
     imageUrl: '',
     link: '',
 }
+
+export const promotionBannerModel = {
+    imageUrl: '',
+    description: '',
+    link: '',
+}

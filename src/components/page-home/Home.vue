@@ -4,6 +4,8 @@
         <section>
             <home-banner/>
             <home-news/>
+            <div class="clr"></div>
+            <promotion-banner/>
         </section>
     </fragment>
 </template>
@@ -12,12 +14,14 @@
 import HeaderVue from './header/Header.vue';
 import HomeBanner from './home-banner/HomeBanner.vue';
 import HomeNews from './home-news/HomeNews.vue';
+import PromotionBanner from './PromotionBanner.vue';
 
 export default {
     components: {
         HeaderVue,
         HomeBanner,
         HomeNews,
+        PromotionBanner,
     }
 }
 </script>
