@@ -1,4 +1,4 @@
-import { getListCategories, getListHomeBannerDescriptions, getListHomeBanners, getListTechNews } from '@/common/functions/page-home-functions';
+import { getListCategories, getListHomeBannerDescriptions, getListHomeBanners, getListTechNews, getTwoBanners } from '@/common/functions/page-home-functions';
 import {
     FETCH_LIST_CATEGORIES,
     FETCH_LIST_HOME_BANNERS,
@@ -12,6 +12,9 @@ import {
     FETCH_LIST_TECH_NEWS,
     SET_LIST_TECH_NEWS,
     LIST_TECH_NEWS,
+    TWO_BANNERS,
+    SET_TWO_BANNERS,
+    FETCH_TWO_BANNERS,
 } from '@/store/module-types/home';
 
 export const state = {
@@ -19,6 +22,7 @@ export const state = {
     listHomeBanners: [],
     listHomeBannerDescriptions: [],
     listTechNews: [],
+    twoBanners: [],
 }
 
 export const getters = {
@@ -33,6 +37,9 @@ export const getters = {
     },
     [LIST_TECH_NEWS](state) {
         return state.listTechNews;
+    },
+    [TWO_BANNERS](state) {
+        return state.twoBanners;
     }
 }
 
@@ -56,6 +63,11 @@ export const mutations = {
         if (Array.isArray(payload?.values) === true) {
             state.listTechNews = payload.values;
         }
+    },
+    [SET_TWO_BANNERS](state, payload) {
+        if (Array.isArray(payload?.values) === true) {
+            state.twoBanners = payload.values;
+        }
     }
 }
 
@@ -75,6 +87,10 @@ export const actions = {
     [FETCH_LIST_TECH_NEWS]({ commit }) {
         const data = getListTechNews();
         commit(SET_LIST_TECH_NEWS, { values: data });
+    },
+    [FETCH_TWO_BANNERS]({ commit }) {
+        const data = getTwoBanners();
+        commit(SET_TWO_BANNERS, { values: data });
     }
 }
 

@@ -26,3 +26,8 @@ export const specificNewsModel = {
     categoryLink: '',
     listPosts: [newsModel],
 }
+
+export const twoBannersModel = {
+    imageUrl: '',
+    link: '',
+}

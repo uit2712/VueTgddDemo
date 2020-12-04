@@ -1,4 +1,4 @@
-import { categoryModel, homeBannerDescriptionModel, homeBannerImageModel, specificNewsModel } from "@/models/home";
+import { categoryModel, homeBannerDescriptionModel, homeBannerImageModel, specificNewsModel, twoBannersModel } from "@/models/home";
 
 export function getListCategories() {
     let sampleData = categoryModel;
@@ -61,5 +61,22 @@ export function getListTechNews() {
 
     let result = [];
     result.push({...sampleData});
+    return result;
+}
+
+export function getTwoBanners() {
+    let sampleData = twoBannersModel;
+    let result = [];
+    sampleData = {
+        imageUrl: 'https://cdn.tgdd.vn/2020/12/banner/M51-398-110-398x110.png',
+        link: 'https://www.thegioididong.com/dtdd/samsung-galaxy-m51',
+    }
+    result.push({...sampleData});
+    sampleData = {
+        imageUrl: 'https://cdn.tgdd.vn/2020/11/banner/398-110-398x110-2.png',
+        link: 'https://www.thegioididong.com/apple#iphone',
+    }
+    result.push({...sampleData});
+
     return result;
 }
