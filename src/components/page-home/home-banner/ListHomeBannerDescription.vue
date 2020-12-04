@@ -6,7 +6,7 @@
                 responseData: firstDescription,
                 apiUrl: $apiLinkType.listHomeBannerDescriptionsApiLink,
                 title: 'Home Banner Description Model',
-                iconCustomStyle: 'position:absolute; bottom: 0; right:0; z-index:9',
+                iconCustomStyle: 'position:absolute; bottom: 33px; right:0; z-index:9',
             }"
         />
         <div

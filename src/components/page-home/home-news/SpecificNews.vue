@@ -22,7 +22,7 @@
             id="specific-news"
             v-bind="{
                 responseData: firstCategory,
-                apiUrl: $apiLinkType.listHomeBannerDescriptionsApiLink,
+                apiUrl: $apiLinkType.specificNewsApiLink,
                 title: 'Specific News Model',
                 iconCustomStyle: 'position:absolute; top: 10px; right:0; z-index:9',
             }"

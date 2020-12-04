@@ -1,6 +1,11 @@
 <template>
     <fragment>
-        <b-icon-info-circle-fill :id="id" :style="iconCustomStyle" class="fas fa-info-circle"/>
+        <b-icon-info-circle-fill
+            :id="id"
+            :style="iconCustomStyle"
+            class="fas fa-info-circle"
+            :variant="variant"
+        />
         <b-popover
             :target="`${id}`"
             :title="title"
@@ -44,6 +49,20 @@ export default {
             type: String,
             required: false,
             default: '',
+        },
+        /**
+         * success
+         * warning
+         * danger
+         * info
+         * primary
+         * secondary
+         * dark
+         */
+        variant: {
+            type: String,
+            required: false,
+            default: 'info',
         }
     },
     computed: {

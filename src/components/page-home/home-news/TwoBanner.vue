@@ -15,16 +15,33 @@
                 height="110"
             />
         </a>
+        <model-info-popover
+            id="two-banners"
+            v-bind="{
+                responseData: firstBanner,
+                apiUrl: $apiLinkType.listTwoBannersApiLink,
+                title: 'Two Banners Model',
+                iconCustomStyle: 'position:absolute; top: 132px; right:0; z-index:9',
+                variant: 'warning',
+            }"
+        />
     </div>
 </template>
 
 <script>
 import { FETCH_TWO_BANNERS, HOME_MODULE, TWO_BANNERS } from '@/store/module-types/home';
 import { mapGetters } from 'vuex';
+import ModelInfoPopover from '@/common/components/ModelInfoPopover.vue';
 
 export default {
+    components: {
+        ModelInfoPopover,
+    },
     computed: {
         ...mapGetters(HOME_MODULE, [TWO_BANNERS]),
+        firstBanner() {
+            return this.TWO_BANNERS[0];
+        }
     },
     created() {
         this.$store.dispatch(`${HOME_MODULE}/${FETCH_TWO_BANNERS}`);
