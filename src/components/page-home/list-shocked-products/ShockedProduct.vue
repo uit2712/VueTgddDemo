@@ -25,7 +25,7 @@
                     <div v-if="isHasDiscountPrice" class="price">
                         <strong>{{ product.discountPrice | formatCurrency }}</strong>
                         <span>{{ product.originalPrice | formatCurrency }}</span>
-                        <i>-{{ product.discountPercent | formatPercent }}</i>
+                        <i v-if="product.discountPercent > 0">-{{ product.discountPercent | formatPercent }}</i>
                     </div>
                     <div v-else class="price">
                         <strong>{{ product.originalPrice | formatCurrency }}</strong>
