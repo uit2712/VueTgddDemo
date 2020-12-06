@@ -6,6 +6,7 @@
             <home-news/>
             <div class="clr"></div>
             <promotion-banner/>
+            <list-shocked-products/>
         </section>
     </fragment>
 </template>
@@ -14,6 +15,7 @@
 import HeaderVue from './header/Header.vue';
 import HomeBanner from './home-banner/HomeBanner.vue';
 import HomeNews from './home-news/HomeNews.vue';
+import ListShockedProducts from './list-shocked-products/ListShockedProducts.vue';
 import PromotionBanner from './PromotionBanner.vue';
 
 export default {
@@ -22,6 +24,7 @@ export default {
         HomeBanner,
         HomeNews,
         PromotionBanner,
+        ListShockedProducts,
     }
 }
 </script>

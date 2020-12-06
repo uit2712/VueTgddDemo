@@ -1,4 +1,4 @@
-import { categoryModel, homeBannerDescriptionModel, homeBannerImageModel, promotionBannerModel, specificNewsModel, twoBannersModel } from "@/models/home";
+import { categoryModel, homeBannerDescriptionModel, homeBannerImageModel, promotionBannerModel, shockedProductModel, specificNewsModel, twoBannersModel } from "@/models/home";
 
 export function getListCategories() {
     let sampleData = categoryModel;
@@ -89,4 +89,63 @@ export function getPromotionBanner() {
         link: 'https://www.thegioididong.com/flashsale',
     };
     return sampleData;
+}
+
+export function getListShockedProducts() {
+    let sampleData = shockedProductModel;
+
+    let result = [];
+    sampleData = {
+        link: '/dtdd/samsung-galaxy-note-20-ultra-5g-trang',
+        imageUrl: 'https://cdn.tgdd.vn/Products/Images/42/230867/samsung-galaxy-note-20-ultra-5g-trang-600x600-2-400x400.jpg',
+        name: 'Samsung Galaxy Note 20 Ultra 5G Trắng',
+        preorderText: 'Đặt trước đến 07/12',
+        productStatusText: 'Hàng sắp về',
+        originalPrice: 32990000,
+        discountPrice: 0,
+        promotionText: 'Tặng ngay 6 triệu, Thu cũ đổi mới, Trả góp 0%',
+        otherInfoIconUrl: 'https://cdn.tgdd.vn/ValueIcons/1/Label_01-05.png',
+    };
+    result.push({...sampleData});
+
+    sampleData = {
+        link: '/dtdd/samsung-galaxy-m51',
+        installment: {
+            value: 0.5,
+        },
+        imageUrl: 'https://cdn.tgdd.vn/Products/Images/42/217536/samsung-galaxy-m51-white-600x600-400x400.jpg',
+        label: {
+            iconUrl: 'https://cdn.tgdd.vn/2020/10/content/icon2-50x50.png',
+            text: 'THU CŨ ĐỔI MỚI',
+        },
+        name: 'Samsung Galaxy M51',
+        productStatusText: 'Hàng sắp về',
+        originalPrice: 9490000,
+        discountPrice: 8990000,
+        discountPercent: 5,
+        rating: {
+            totalStars: 4,
+            totalRatings: 128,
+        },
+    };
+    result.push({...sampleData});
+
+    sampleData = {
+        link: '/laptop/lenovo-thinkbook-15iil-i3-20sm00d9vn',
+        imageUrl: 'https://cdn.tgdd.vn/Products/Images/44/230161/lenovo-thinkbook-15iil-i3-20sm00d9vn-021320-101327-400x400.jpg',
+        name: 'Lenovo ThinkBook 15IIL i3 1005G1/4GB/512GB/Win10 (20SM00D9VN)',
+        label: {
+            text: 'Giảm sốc',
+            iconUrl: 'https://cdn.tgdd.vn/2020/10/content/icon1-50x50.png',
+        },
+        productStatusText: 'Online giá rẻ',
+        listProperties: ['RAM 4GB', 'Ổ cứng SSD 512GB'],
+        originalPrice: 12990000,
+        discountPrice: 11690000,
+        promotionText: 'Quà <b>100.000₫</b>',
+        otherInfoIconUrl: 'https://cdn.tgdd.vn/ValueIcons/1/Label-Intel-Gen10.png',
+    };
+    result.push({...sampleData});
+
+    return result;
 }

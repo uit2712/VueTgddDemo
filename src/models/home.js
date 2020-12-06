@@ -37,3 +37,34 @@ export const promotionBannerModel = {
     description: '',
     link: '',
 }
+
+const shockedProductLabelModel = {
+    iconUrl: '',
+    text: '',
+}
+
+const ratingProductModel = {
+    totalStars: 0,
+    totalRatings: 0,
+}
+
+const installmentModel = {
+    value: 0,
+}
+
+export const shockedProductModel = {
+    name: '',
+    imageUrl: '',
+    link: '',
+    label: shockedProductLabelModel,
+    originalPrice: 0,
+    discountPrice: 0,
+    discountPercent: 0,
+    promotionText: '',
+    rating: ratingProductModel,
+    productStatusText: '',
+    listProperties: [], // list string
+    installment: installmentModel,
+    otherInfoIconUrl: '',
+    preorderText: '',
+}
