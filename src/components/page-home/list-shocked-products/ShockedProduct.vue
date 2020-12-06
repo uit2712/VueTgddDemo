@@ -15,7 +15,11 @@
                         class="lazyloaded"
                         :alt="product.name"
                     />
-                    <label class="preorder">{{ product.preorderText }}</label>
+                    <label v-if="product.preorderText" class="preorder">{{ product.preorderText }}</label>
+                    <aside v-if="product.label" class="result-label temp2">
+                        <img :src="product.label.imageUrl" class="imgresult lazyloaded">
+                        <span class="text">{{ product.label.text }}</span>
+                    </aside>
                     <h3>{{ product.name }}</h3>
                     <div class="props">
                         <span class="dotted" v-for="(prop, index) in product.listProperties" :key="index">{{ prop }}</span>
