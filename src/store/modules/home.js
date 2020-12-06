@@ -1,4 +1,4 @@
-import { getListCategories, getListHomeBannerDescriptions, getListHomeBanners, getListTechNews, getPromotionBanner, getTwoBanners } from '@/common/functions/page-home-functions';
+import { getListCategories, getListHomeBannerDescriptions, getListHomeBanners, getListShockedProducts, getListTechNews, getPromotionBanner, getTwoBanners } from '@/common/functions/page-home-functions';
 import {
     FETCH_LIST_CATEGORIES,
     FETCH_LIST_HOME_BANNERS,
@@ -18,6 +18,9 @@ import {
     PROMOTION_BANNER,
     SET_PROMOTION_BANNER,
     FETCH_PROMOTION_BANNER,
+    LIST_SHOCKED_PRODUCTS,
+    SET_LIST_SHOCKED_PRODUCTS,
+    FETCH_LIST_SHOCKED_PRODUCTS,
 } from '@/store/module-types/home';
 import { promotionBannerModel } from '@/models/home';
 
@@ -28,6 +31,7 @@ export const state = {
     listTechNews: [],
     twoBanners: [],
     promotionBanner: null,
+    listShockedProducts: [],
 }
 
 export const getters = {
@@ -52,7 +56,10 @@ export const getters = {
         }
 
         return state.promotionBanner;
-    }
+    },
+    [LIST_SHOCKED_PRODUCTS](state) {
+        return state.listShockedProducts;
+    },
 }
 
 export const mutations = {
@@ -85,7 +92,12 @@ export const mutations = {
         if (payload?.value) {
             state.promotionBanner = payload.value;
         }
-    }
+    },
+    [SET_LIST_SHOCKED_PRODUCTS](state, payload) {
+        if (Array.isArray(payload?.values) === true) {
+            state.listShockedProducts = payload.values;
+        }
+    },
 }
 
 export const actions = {
@@ -112,7 +124,11 @@ export const actions = {
     [FETCH_PROMOTION_BANNER]({ commit }) {
         const data = getPromotionBanner();
         commit(SET_PROMOTION_BANNER, { value: data });
-    }
+    },
+    [FETCH_LIST_SHOCKED_PRODUCTS]({ commit }) {
+        const data = getListShockedProducts();
+        commit(SET_LIST_SHOCKED_PRODUCTS, { values: data });
+    },
 }
 
 export default {

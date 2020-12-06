@@ -96,6 +96,7 @@ export function getListShockedProducts() {
 
     let result = [];
     sampleData = {
+        productId: 0,
         link: '/dtdd/samsung-galaxy-note-20-ultra-5g-trang',
         imageUrl: 'https://cdn.tgdd.vn/Products/Images/42/230867/samsung-galaxy-note-20-ultra-5g-trang-600x600-2-400x400.jpg',
         name: 'Samsung Galaxy Note 20 Ultra 5G Trắng',
@@ -109,6 +110,7 @@ export function getListShockedProducts() {
     result.push({...sampleData});
 
     sampleData = {
+        productId: 1,
         link: '/dtdd/samsung-galaxy-m51',
         installment: {
             value: 0.5,
@@ -131,6 +133,7 @@ export function getListShockedProducts() {
     result.push({...sampleData});
 
     sampleData = {
+        productId: 2,
         link: '/laptop/lenovo-thinkbook-15iil-i3-20sm00d9vn',
         imageUrl: 'https://cdn.tgdd.vn/Products/Images/44/230161/lenovo-thinkbook-15iil-i3-20sm00d9vn-021320-101327-400x400.jpg',
         name: 'Lenovo ThinkBook 15IIL i3 1005G1/4GB/512GB/Win10 (20SM00D9VN)',

@@ -53,6 +53,7 @@ const installmentModel = {
 }
 
 export const shockedProductModel = {
+    productId: 0,
     name: '',
     imageUrl: '',
     link: '',

@@ -6,7 +6,7 @@
     max-width: 100% !important; /* Max Width of the popover (depending on the container!) */
     z-index: 9999;
 }
-pre.json-code {outline: 1px solid #ccc; padding: 5px; margin: 5px; }
+pre.json-code {outline: 1px solid #ccc; padding: 5px; margin: 5px; max-height: 300px; }
 pre.json-code .string { color: green; }
 pre.json-code .number { color: darkorange; }
 pre.json-code .boolean { color: blue; }

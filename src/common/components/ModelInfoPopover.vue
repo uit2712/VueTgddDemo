@@ -9,7 +9,7 @@
         <b-popover
             :target="`${id}`"
             :title="title"
-            placement="bottom"
+            :placement="placement"
         >
             <div v-html="dataContent"></div>
         </b-popover>
@@ -63,6 +63,11 @@ export default {
             type: String,
             required: false,
             default: 'info',
+        },
+        placement: {
+            type: String,
+            required: false,
+            default: 'bottom',
         }
     },
     computed: {
