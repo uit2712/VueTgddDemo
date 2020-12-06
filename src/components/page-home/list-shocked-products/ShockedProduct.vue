@@ -34,7 +34,7 @@
                     <div v-else class="price">
                         <strong>{{ product.originalPrice | formatCurrency }}</strong>
                     </div>
-                    <div class="promo noimage">
+                    <div v-if="product.promotionText" class="promo noimage">
                         <p v-html="product.promotionText"></p>
                     </div>
                     <img
