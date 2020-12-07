@@ -1,4 +1,4 @@
-# Tag Manager Events
+# Tracking Events
 ## I. Khai báo tên các event như sau
 ```javascript
 const ADD_LIST_PRODUCTS_TO_CART_TRACKING_EVENT = 'addProductToCart';
@@ -157,3 +157,10 @@ window.ecommerceListProductsWillBeViewed = [{
 // gọi event tracking của tag manager tại đây => trên event đọc dữ liệu từ biến window.ecommerceListProductsWillBeViewed và tiến hành tracking
 trackingViewListProducts(window.ecommerceListProductsWillBeViewed);
 ```
+# Google analytics
+## I. ADD_LIST_PROUCTS_TO_CART_TRACKING_EVENT
+## II. ADD_LIST_PROUCTS_TO_CART_TRACKING_EVENT
+## III. REMOVE_LIST_PROUCTS_FROM_CART_TRACKING_EVENT
+## IV. CHECKOUT_TRACKING_EVENT
+## V. PURCHASE_TRACKING_EVENT
+## VI. VIEW_LIST_PRODUCTS_EVENT
