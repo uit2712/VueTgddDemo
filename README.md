@@ -55,13 +55,13 @@ Thêm sản phẩm sau vào giỏ hàng:
 ```javascript
 // khởi tạo dữ liệu
 window.ecommerceListProductsWillBeAddedToCart = [{
-    "id":"179592",
+    "productId":"179592",
     "name":"Tủ lạnh Panasonic Inverter 234 lít NR-BL267PKV1",
-    "category":"Tủ lạnh",
-    "brand":"Panasonic",
+    "categoryName":"Tủ lạnh",
+    "brandName":"Panasonic",
     "price":5090000,
     "quantity":1,
-    "variant":"3051097001512"
+    "productCode":"3051097001512"
 }]
 // gọi event tracking của tag manager tại đây => trên event đọc dữ liệu từ biến window.ecommerceListProductsWillBeAddedToCart và tiến hành tracking
 trackingAddListProductsToCart(window.ecommerceListProductsWillBeAddedToCart);
@@ -75,13 +75,13 @@ Xóa 1 hay nhiều sản phẩm trong giỏ hàng, trước khi gọi tới *Tag
 Thêm sản phẩm sau vào giỏ hàng:
 ```javascript
 window.ecommerceListProductsWillBeRemovedFromCart = [{
-    "id":"179592",
+    "productId":"179592",
     "name":"Tủ lạnh Panasonic Inverter 234 lít NR-BL267PKV1",
-    "category":"Tủ lạnh",
-    "brand":"Panasonic",
+    "categoryName":"Tủ lạnh",
+    "brandName":"Panasonic",
     "price":5090000,
     "quantity":1,
-    "variant":"3051097001512"
+    "productCode":"3051097001512"
 }]
 // gọi event tracking của tag manager tại đây => trên event đọc dữ liệu từ biến window.ecommerceListProductsWillBeRemovedFromCart và tiến hành tracking
 trackingRemoveListProductsFromCart(window.ecommerceListProductsWillBeRemovedFromCart);
@@ -97,13 +97,13 @@ trackingRemoveListProductsFromCart(window.ecommerceListProductsWillBeRemovedFrom
 window.ecommerceCheckoutInfo = {
     "orderId": 123456,
     "listProducts": [{
-        "id":"179592",
+        "productId":"179592",
         "name":"Tủ lạnh Panasonic Inverter 234 lít NR-BL267PKV1",
-        "category":"Tủ lạnh",
-        "brand":"Panasonic",
+        "categoryName":"Tủ lạnh",
+        "brandName":"Panasonic",
         "price":5090000,
         "quantity":1,
-        "variant":"3051097001512"
+        "productCode":"3051097001512"
     }]
 }
 // gọi event tracking của tag manager tại đây => trên event đọc dữ liệu từ biến window.ecommerceCheckoutInfo và tiến hành tracking
@@ -120,13 +120,13 @@ Thanh toán danh sách sản phẩm sau:
 window.ecommercePurchaseInfo = {
     "orderId": 123456,
     "listProducts": [{
-        "id":"179592",
+        "productId":"179592",
         "name":"Tủ lạnh Panasonic Inverter 234 lít NR-BL267PKV1",
-        "category":"Tủ lạnh",
-        "brand":"Panasonic",
+        "categoryName":"Tủ lạnh",
+        "brandName":"Panasonic",
         "price":5090000,
         "quantity":1,
-        "variant":"3051097001512"
+        "productCode":"3051097001512"
     }]
 }
 // gọi event tracking của tag manager tại đây => trên event đọc dữ liệu từ biến window.ecommercePurchaseInfo và tiến hành tracking
@@ -146,13 +146,13 @@ Tất cả các trang có hiển thị thông tin sản phẩm:
 Xem danh sách sản phẩm sau:
 ```javascript
 window.ecommerceListProductsWillBeViewed = [{
-    "id":"179592",
+    "productId":"179592",
     "name":"Tủ lạnh Panasonic Inverter 234 lít NR-BL267PKV1",
-    "category":"Tủ lạnh",
-    "brand":"Panasonic",
+    "categoryName":"Tủ lạnh",
+    "brandName":"Panasonic",
     "price":5090000,
     "quantity":1,
-    "variant":"3051097001512"
+    "productCode":"3051097001512"
 }]
 // gọi event tracking của tag manager tại đây => trên event đọc dữ liệu từ biến window.ecommerceListProductsWillBeViewed và tiến hành tracking
 trackingViewListProducts(window.ecommerceListProductsWillBeViewed);
