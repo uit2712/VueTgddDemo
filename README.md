@@ -53,7 +53,8 @@ Thêm 1 hay nhiều sản phẩm vào giỏ hàng, trước khi gọi tới *Tag
 ### 3. Ví dụ:
 Thêm sản phẩm sau vào giỏ hàng:
 ```javascript
-window.__gaListProductsWillBeAddedToCart__ = [{
+// khởi tạo dữ liệu
+window.ecommerceListProductsWillBeAddedToCart = [{
     "id":"179592",
     "name":"Tủ lạnh Panasonic Inverter 234 lít NR-BL267PKV1",
     "category":"Tủ lạnh",
@@ -62,17 +63,18 @@ window.__gaListProductsWillBeAddedToCart__ = [{
     "quantity":1,
     "variant":"3051097001512"
 }]
-// gọi event tracking của tag manager tại đây => trên event đọc dữ liệu từ biến window.__gaListProductsWillBeAddedToCart__ và tiến hành tracking
+// gọi event tracking của tag manager tại đây => trên event đọc dữ liệu từ biến window.ecommerceListProductsWillBeAddedToCart và tiến hành tracking
+trackingAddListProductsToCart(window.ecommerceListProductsWillBeAddedToCart);
 ```
 ## III. REMOVE_LIST_PROUCTS_FROM_CART_TRACKING_EVENT
 ### 1. Mô tả:
-Xóa 1 hay nhiều sản phẩm trong giỏ hàng, trước khi gọi tới *Tag Manager* thì cần thiết lập giá trị cho 1 biến **window.__gaListProductsWillBeRemovedFromCart__**
+Xóa 1 hay nhiều sản phẩm trong giỏ hàng, trước khi gọi tới *Tag Manager* thì cần thiết lập giá trị cho 1 biến **window.ecommerceListProductsWillBeRemovedFromCart**
 ### 2. Trang áp dụng
 - Trang Giỏ hàng
 ### 3. Ví dụ:
 Thêm sản phẩm sau vào giỏ hàng:
 ```javascript
-window.__gaListProductsWillBeRemovedFromCart__ = [{
+window.ecommerceListProductsWillBeRemovedFromCart = [{
     "id":"179592",
     "name":"Tủ lạnh Panasonic Inverter 234 lít NR-BL267PKV1",
     "category":"Tủ lạnh",
@@ -81,49 +83,58 @@ window.__gaListProductsWillBeRemovedFromCart__ = [{
     "quantity":1,
     "variant":"3051097001512"
 }]
-// gọi event tracking của tag manager tại đây => trên event đọc dữ liệu từ biến window.__gaListProductsWillBeRemovedFromCart__ và tiến hành tracking
+// gọi event tracking của tag manager tại đây => trên event đọc dữ liệu từ biến window.ecommerceListProductsWillBeRemovedFromCart và tiến hành tracking
+trackingRemoveListProductsFromCart(window.ecommerceListProductsWillBeRemovedFromCart);
 ```
 ## IV. CHECKOUT_TRACKING_EVENT
 ### 1. Mô tả:
-Đặt hàng, trước khi gọi tới *Tag Manager* thì cần thiết lập giá trị cho 1 biến **window.__gaListProductsWillBeCheckedOut__**
+Đặt hàng, trước khi gọi tới *Tag Manager* thì cần thiết lập giá trị cho 1 biến **window.ecommerceCheckoutInfo**
 ### 2. Trang áp dụng:
 - Trang thankyou (Đặt hàng thành công)
 ### 3. Ví dụ:
 Đặt hàng:
 ```javascript
-window.__gaListProductsWillBeCheckedOut__ = [{
-    "id":"179592",
-    "name":"Tủ lạnh Panasonic Inverter 234 lít NR-BL267PKV1",
-    "category":"Tủ lạnh",
-    "brand":"Panasonic",
-    "price":5090000,
-    "quantity":1,
-    "variant":"3051097001512"
-}]
-// gọi event tracking của tag manager tại đây => trên event đọc dữ liệu từ biến window.__gaListProductsWillBeCheckedOut__ và tiến hành tracking
+window.ecommerceCheckoutInfo = {
+    "orderId": 123456,
+    "listProducts": [{
+        "id":"179592",
+        "name":"Tủ lạnh Panasonic Inverter 234 lít NR-BL267PKV1",
+        "category":"Tủ lạnh",
+        "brand":"Panasonic",
+        "price":5090000,
+        "quantity":1,
+        "variant":"3051097001512"
+    }]
+}
+// gọi event tracking của tag manager tại đây => trên event đọc dữ liệu từ biến window.ecommerceCheckoutInfo và tiến hành tracking
+trackingCheckout(window.ecommerceCheckoutInfo)
 ```
 ## V. PURCHASE_TRACKING_EVENT
 ### 1. Mô tả:
-Thanh toán, trước khi gọi tới *Tag Manager* thì cần thiết lập giá trị cho 1 biến **window.__gaListProductsWillBePurchased__**
+Thanh toán, trước khi gọi tới *Tag Manager* thì cần thiết lập giá trị cho 1 biến **window.ecommercePurchaseInfo**
 ### 2. Trang áp dụng:
 - Trang thankyou (Đặt hàng thành công)
 ### 3. Ví dụ:
 Thanh toán danh sách sản phẩm sau:
 ```javascript
-window.__gaListProductsWillBePurchased__ = [{
-    "id":"179592",
-    "name":"Tủ lạnh Panasonic Inverter 234 lít NR-BL267PKV1",
-    "category":"Tủ lạnh",
-    "brand":"Panasonic",
-    "price":5090000,
-    "quantity":1,
-    "variant":"3051097001512"
-}]
-// gọi event tracking của tag manager tại đây => trên event đọc dữ liệu từ biến window.__gaListProductsWillBePurchased__ và tiến hành tracking
+window.ecommercePurchaseInfo = {
+    "orderId": 123456,
+    "listProducts": [{
+        "id":"179592",
+        "name":"Tủ lạnh Panasonic Inverter 234 lít NR-BL267PKV1",
+        "category":"Tủ lạnh",
+        "brand":"Panasonic",
+        "price":5090000,
+        "quantity":1,
+        "variant":"3051097001512"
+    }]
+}
+// gọi event tracking của tag manager tại đây => trên event đọc dữ liệu từ biến window.ecommercePurchaseInfo và tiến hành tracking
+trackingPurchase(window.ecommercePurchaseInfo);
 ```
 ## VI. VIEW_LIST_PRODUCTS_EVENT
 ### 1. Mô tả:
-Xem danh sách sản phẩm, trước khi gọi tới *Tag Manager* thì cần thiết lập giá trị cho 1 biến **window.__gaListProductsWillBeViewed__**
+Xem danh sách sản phẩm, trước khi gọi tới *Tag Manager* thì cần thiết lập giá trị cho 1 biến **window.ecommerceListProductsWillBeViewed**
 ### 2. Trang áp dụng:
 Tất cả các trang có hiển thị thông tin sản phẩm:
 - Trang chủ
@@ -134,7 +145,7 @@ Tất cả các trang có hiển thị thông tin sản phẩm:
 ### 3. Ví dụ:
 Xem danh sách sản phẩm sau:
 ```javascript
-window.__gaListProductsWillBeViewed__ = [{
+window.ecommerceListProductsWillBeViewed = [{
     "id":"179592",
     "name":"Tủ lạnh Panasonic Inverter 234 lít NR-BL267PKV1",
     "category":"Tủ lạnh",
@@ -143,5 +154,6 @@ window.__gaListProductsWillBeViewed__ = [{
     "quantity":1,
     "variant":"3051097001512"
 }]
-// gọi event tracking của tag manager tại đây => trên event đọc dữ liệu từ biến window.__gaListProductsWillBeViewed__ và tiến hành tracking
+// gọi event tracking của tag manager tại đây => trên event đọc dữ liệu từ biến window.ecommerceListProductsWillBeViewed và tiến hành tracking
+trackingViewListProducts(window.ecommerceListProductsWillBeViewed);
 ```
