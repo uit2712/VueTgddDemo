@@ -46,7 +46,7 @@ function trackingPurchase(data) {
 ```
 ## II. ADD_LIST_PROUCTS_TO_CART_TRACKING_EVENT
 ### 1. Mô tả:
-Thêm 1 hay nhiều sản phẩm vào giỏ hàng, trước khi gọi tới *Tag Manager* thì cần thiết lập giá trị cho 1 biến **window.__gaListProductsWillBeAddedToCart__**
+Thêm 1 hay nhiều sản phẩm vào giỏ hàng, trước khi gọi tới *Tag Manager* thì cần thiết lập giá trị cho 1 biến **window.ecommerceListProductsWillBeAddedToCart**
 ### 2. Trang áp dụng:
 - Trang chi tiết sản phẩm (popup)
 - Trang giỏ hàng
