@@ -189,6 +189,35 @@ function trackingAddListProductsToCart(data = []) {
 }
 ```
 ## II. REMOVE_LIST_PROUCTS_FROM_CART_TRACKING_EVENT
+- Hàm ga tracking xóa danh sách sản phẩm khỏi giỏ hàng
+```javascript
+function gaRemoveListProductsFromCart(data = []) {
+    if (Array.isArray(data) === false || data.length === 0)
+        return;
+        
+    // mapping
+    const mappedListProducts = data.map(p => ({
+        id: p.productId,
+        name: p.name,
+        category: p.categoryName,
+        brand: p.brandName,
+        price: p.price,
+        quantity: p.quantity,
+        variant: p.productCode
+    }));
+    // send event
+    ...
+}
+```
+- Chỉnh sửa hàm **trackingRemoveListProductsFromCart**
+```javascript
+function trackingRemoveListProductsFromCart(data = []) {
+    // google analytics
+    gaRemoveListProductsFromCart(data);
+    // facebook analytics
+    ...
+}
+```
 ## III. CHECKOUT_TRACKING_EVENT
 ## IV. PURCHASE_TRACKING_EVENT
 ## V. VIEW_LIST_PRODUCTS_EVENT
