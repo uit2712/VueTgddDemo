@@ -159,8 +159,36 @@ trackingViewListProducts(window.ecommerceListProductsWillBeViewed);
 ```
 # Google analytics
 ## I. ADD_LIST_PROUCTS_TO_CART_TRACKING_EVENT
-## II. ADD_LIST_PROUCTS_TO_CART_TRACKING_EVENT
-## III. REMOVE_LIST_PROUCTS_FROM_CART_TRACKING_EVENT
-## IV. CHECKOUT_TRACKING_EVENT
-## V. PURCHASE_TRACKING_EVENT
-## VI. VIEW_LIST_PRODUCTS_EVENT
+- Hàm ga tracking thêm danh sách sản phẩm vào giỏ hàng
+```javascript
+function gaAddListProductsToCart(data = []) {
+    if (Array.isArray(data) === false || data.length === 0)
+        return;
+        
+    // mapping
+    const mappedListProducts = data.map(p => ({
+        id: p.productId,
+        name: p.name,
+        category: p.categoryName,
+        brand: p.brandName,
+        price: p.price,
+        quantity: p.quantity,
+        variant: p.productCode
+    }));
+    // send event
+    ...
+}
+```
+- Chỉnh sửa hàm **trackingAddListProductsToCart**
+```javascript
+function trackingAddListProductsToCart(data = []) {
+    // google analytics
+    gaAddListProductsToCart(data);
+    // facebook analytics
+    ...
+}
+```
+## II. REMOVE_LIST_PROUCTS_FROM_CART_TRACKING_EVENT
+## III. CHECKOUT_TRACKING_EVENT
+## IV. PURCHASE_TRACKING_EVENT
+## V. VIEW_LIST_PRODUCTS_EVENT
