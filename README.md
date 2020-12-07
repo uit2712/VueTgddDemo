@@ -7,6 +7,43 @@ const CHECKOUT_TRACKING_EVENT = 'CHECKOUT_TRACKING_EVENT';
 const PURCHASE_TRACKING_EVENT = 'PURCHASE_TRACKING_EVENT';
 const VIEW_LIST_PRODUCTS_EVENT = 'VIEW_LIST_PRODUCTS_EVENT';
 ```
+## II. Khai báo các hàm để tracking
+```javascript
+// xem 1 hay nhiều sản phẩm
+function trackingViewListProducts(data = []) {
+    // google analytics
+    // facebook analytics
+    ...
+}
+
+// thêm 1 hay nhiều sản phẩm
+function trackingAddListProductsToCart(data = []) {
+    // google analytics
+    // facebook analytics
+    ...
+}
+
+// xóa 1 hay nhiều sản phẩm
+function trackingRemoveListProductsFromCart(data = []) {
+    // google analytics
+    // facebook analytics
+    ..
+}
+
+// đặt hàng 1 hay nhiều sản phẩm
+function trackingCheckout(data) {
+    // google analytics
+    // facebook analytics
+    ...
+}
+
+// thanh toán đơn hàng
+function trackingPurchase(data) {
+    // google analytics
+    // facebook analytics
+    ...
+}
+```
 ## II. ADD_LIST_PROUCTS_TO_CART_TRACKING_EVENT
 ### 1. Mô tả:
 Thêm 1 hay nhiều sản phẩm vào giỏ hàng, trước khi gọi tới *Tag Manager* thì cần thiết lập giá trị cho 1 biến **window.__gaListProductsWillBeAddedToCart__**
