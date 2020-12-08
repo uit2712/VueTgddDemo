@@ -373,3 +373,202 @@ function trackingViewListProducts(data = []) {
     ...
 }
 ```
+# Google Tag Manager
+## I. Thêm sản phẩm vào giỏ hàng (event: ADD_LIST_PROUCTS_TO_CART_TRACKING_EVENT)
+- Hàm gtm tracking thêm danh sách sản phẩm vào giỏ hàng
+```javascript
+function gtmAddListProductsToCart(data = []) {
+    if (Array.isArray(data) === false || data.length === 0)
+        return;
+        
+    // mapping
+    const mappedListProducts = data.map(p => ({
+        id: p.productId,
+        name: p.name,
+        category: p.categoryName,
+        brand: p.brandName,
+        price: p.price,
+        quantity: p.quantity,
+        variant: p.productCode
+    }));
+    // send event
+    ...
+}
+```
+- Chỉnh sửa hàm **trackingAddListProductsToCart**
+```javascript
+function trackingAddListProductsToCart(data = []) {
+    // google analytics
+    gaAddListProductsToCart(data);
+    // google tag manager
+    gtmAddListProductsToCart(data);
+    // facebook analytics
+    ...
+}
+```
+## II. Xóa sản phẩm khỏi giỏ hàng (event: REMOVE_LIST_PROUCTS_FROM_CART_TRACKING_EVENT)
+- Hàm gtm tracking xóa danh sách sản phẩm khỏi giỏ hàng
+```javascript
+function gtmRemoveListProductsFromCart(data = []) {
+    if (Array.isArray(data) === false || data.length === 0)
+        return;
+        
+    // mapping
+    const mappedListProducts = data.map(p => ({
+        id: p.productId,
+        name: p.name,
+        category: p.categoryName,
+        brand: p.brandName,
+        price: p.price,
+        quantity: p.quantity,
+        variant: p.productCode
+    }));
+    // send event
+    ...
+}
+```
+- Chỉnh sửa hàm **trackingRemoveListProductsFromCart**
+```javascript
+function trackingRemoveListProductsFromCart(data = []) {
+    // google analytics
+    gaRemoveListProductsFromCart(data);
+    // google tag manager
+    gtmRemoveListProductsFromCart(data);
+    // facebook analytics
+    ...
+}
+```
+## III. Đặt hàng (event: CHECKOUT_TRACKING_EVENT)
+- Hàm ga tracking đặt hàng
+```javascript
+/*
+data = {
+  listProducts: [],
+  checkoutInfo: {
+    crmOrderId: 0,
+    total: 0,
+    shippingCost: 0,
+    couponCode: '',
+  },
+}
+*/
+function gtmCheckout(data) {
+    if (!data || Array.isArray(data.listProducts) === false || !data.checkoutInfo)
+        return;
+        
+    // mapping
+    const mappedListProducts = data.listProducts.map(p => ({
+        id: p.productId,
+        name: p.name,
+        category: p.categoryName,
+        brand: p.brandName,
+        price: p.price,
+        quantity: p.quantity,
+        variant: p.productCode
+    }));
+    
+    const mappedCheckoutInfo = {
+      id: data.checkoutInfo.crmOrderId,
+      revenue: data.checkoutInfo.total,
+      shipping: data.checkoutInfo.shippingCost,
+      coupon: data.checkoutInfo.couponCode,
+    }
+    
+    // send event
+    ...
+}
+```
+- Chỉnh sửa hàm **trackingCheckout**
+```javascript
+function trackingCheckout(data) {
+    // google analytics
+    gaCheckout(data);
+    // google tag manager
+    gtmCheckout(data);
+    // facebook analytics
+    ...
+}
+```
+## IV. Thanh toán (event: PURCHASE_TRACKING_EVENT)
+- Hàm ga tracking đặt hàng
+```javascript
+/*
+data = {
+  listProducts: [],
+  purchaseInfo: {
+    crmOrderId: 0,
+    total: 0,
+    shippingCost: 0,
+    couponCode: '',
+  },
+}
+*/
+function gtmPurchase(data) {
+    if (!data || Array.isArray(data.listProducts) === false || !data.purchaseInfo)
+        return;
+        
+    // mapping
+    const mappedListProducts = data.listProducts.map(p => ({
+        id: p.productId,
+        name: p.name,
+        category: p.categoryName,
+        brand: p.brandName,
+        price: p.price,
+        quantity: p.quantity,
+        variant: p.productCode
+    }));
+    
+    const mappedPurchaseInfo = {
+      id: data.purchaseInfo.crmOrderId,
+      total: data.purchaseInfo.total,
+      shipping: data.purchaseInfo.shippingCost,
+      coupon: data.purchaseInfo.couponCode,
+    }
+    
+    // send event
+    ...
+}
+```
+- Chỉnh sửa hàm **trackingPurchase**
+```javascript
+function trackingPurchase(data) {
+    // google analytics
+    gaPurchase(data);
+    // google tag manager
+    gtmPurchase(data);
+    // facebook analytics
+    ...
+}
+```
+## V. Xem sản phẩm (event: VIEW_LIST_PRODUCTS_EVENT)
+- Hàm ga tracking xem danh sách sản phẩm
+```javascript
+function gaViewListProducts(data = []) {
+    if (Array.isArray(data) === false || data.length === 0)
+        return;
+        
+    // mapping
+    const mappedListProducts = data.map(p => ({
+        id: p.productId,
+        name: p.name,
+        category: p.categoryName,
+        brand: p.brandName,
+        price: p.price,
+        quantity: p.quantity,
+        variant: p.productCode
+    }));
+    // send event
+    ...
+}
+```
+- Chỉnh sửa hàm **trackingViewListProducts**
+```javascript
+function trackingViewListProducts(data = []) {
+    // google analytics
+    gaViewListProducts(data);
+    // google tag manager
+    gtmViewListProducts(data);
+    // facebook analytics
+    ...
+}
+```
