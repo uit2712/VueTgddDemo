@@ -175,7 +175,7 @@ window.ecommerceListProductsWillBeViewed = [{
 trackingViewListProducts(window.ecommerceListProductsWillBeViewed);
 ```
 # Google analytics
-## I. ADD_LIST_PROUCTS_TO_CART_TRACKING_EVENT
+## I. Thêm sản phẩm vào giỏ hàng (event: ADD_LIST_PROUCTS_TO_CART_TRACKING_EVENT)
 - Hàm ga tracking thêm danh sách sản phẩm vào giỏ hàng
 ```javascript
 function gaAddListProductsToCart(data = []) {
@@ -205,7 +205,7 @@ function trackingAddListProductsToCart(data = []) {
     ...
 }
 ```
-## II. REMOVE_LIST_PROUCTS_FROM_CART_TRACKING_EVENT
+## II. Xóa sản phẩm khỏi giỏ hàng (event: REMOVE_LIST_PROUCTS_FROM_CART_TRACKING_EVENT)
 - Hàm ga tracking xóa danh sách sản phẩm khỏi giỏ hàng
 ```javascript
 function gaRemoveListProductsFromCart(data = []) {
@@ -235,10 +235,10 @@ function trackingRemoveListProductsFromCart(data = []) {
     ...
 }
 ```
-## III. CHECKOUT_TRACKING_EVENT
+## III. Đặt hàng (event: CHECKOUT_TRACKING_EVENT)
 
-## IV. PURCHASE_TRACKING_EVENT
-## V. VIEW_LIST_PRODUCTS_EVENT
+## IV. Thanh toán (event: PURCHASE_TRACKING_EVENT)
+## V. Xem sản phẩm (event: VIEW_LIST_PRODUCTS_EVENT)
 - Hàm ga tracking xem danh sách sản phẩm
 ```javascript
 function gaViewListProducts(data = []) {
