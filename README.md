@@ -112,7 +112,12 @@ trackingRemoveListProductsFromCart(window.ecommerceListProductsWillBeRemovedFrom
 Đặt hàng:
 ```javascript
 window.ecommerceCheckoutInfo = {
-    "orderId": 123456,
+    "checkoutInfo": {
+        "crmOrderId": 123456,
+        "total": 999999999,
+        "couponCode": "123456",
+        "shippingCost": 55555,
+    },
     "listProducts": [{
         "productId":"179592",
         "name":"Tủ lạnh Panasonic Inverter 234 lít NR-BL267PKV1",
@@ -135,7 +140,12 @@ Thanh toán, trước khi gọi tới *Tag Manager* thì cần thiết lập gi�
 Thanh toán danh sách sản phẩm sau:
 ```javascript
 window.ecommercePurchaseInfo = {
-    "orderId": 123456,
+    "purchaseInfo": {
+        "crmOrderId": 123456,
+        "total": 999999999,
+        "couponCode": "123456",
+        "shippingCost": 55555,
+    },
     "listProducts": [{
         "productId":"179592",
         "name":"Tủ lạnh Panasonic Inverter 234 lít NR-BL267PKV1",
