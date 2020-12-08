@@ -236,8 +236,103 @@ function trackingRemoveListProductsFromCart(data = []) {
 }
 ```
 ## III. Đặt hàng (event: CHECKOUT_TRACKING_EVENT)
-
+- Hàm ga tracking đặt hàng
+```javascript
+/*
+data = {
+  listProducts: [],
+  checkoutInfo: {
+    crmOrderId: 0,
+    total: 0,
+    shippingCost: 0,
+    couponCode: '',
+  },
+}
+*/
+function gaCheckout(data) {
+    if (!data || Array.isArray(data.listProducts) === false || !data.checkoutInfo)
+        return;
+        
+    // mapping
+    const mappedListProducts = data.listProducts.map(p => ({
+        id: p.productId,
+        name: p.name,
+        category: p.categoryName,
+        brand: p.brandName,
+        price: p.price,
+        quantity: p.quantity,
+        variant: p.productCode
+    }));
+    
+    const mappedCheckoutInfo = {
+      id: data.checkoutInfo.crmOrderId,
+      revenue: data.checkoutInfo.total,
+      shipping: data.checkoutInfo.shippingCost,
+      coupon: data.checkoutInfo.couponCode,
+    }
+    
+    // send event
+    ...
+}
+```
+- Chỉnh sửa hàm **trackingCheckout**
+```javascript
+function trackingCheckout(data) {
+    // google analytics
+    gaCheckout(data);
+    // facebook analytics
+    ...
+}
+```
 ## IV. Thanh toán (event: PURCHASE_TRACKING_EVENT)
+- Hàm ga tracking đặt hàng
+```javascript
+/*
+data = {
+  listProducts: [],
+  purchaseInfo: {
+    crmOrderId: 0,
+    total: 0,
+    shippingCost: 0,
+    couponCode: '',
+  },
+}
+*/
+function gaPurchase(data) {
+    if (!data || Array.isArray(data.listProducts) === false || !data.purchaseInfo)
+        return;
+        
+    // mapping
+    const mappedListProducts = data.listProducts.map(p => ({
+        id: p.productId,
+        name: p.name,
+        category: p.categoryName,
+        brand: p.brandName,
+        price: p.price,
+        quantity: p.quantity,
+        variant: p.productCode
+    }));
+    
+    const mappedPurchaseInfo = {
+      id: data.purchaseInfo.crmOrderId,
+      total: data.purchaseInfo.total,
+      shipping: data.purchaseInfo.shippingCost,
+      coupon: data.purchaseInfo.couponCode,
+    }
+    
+    // send event
+    ...
+}
+```
+- Chỉnh sửa hàm **trackingPurchase**
+```javascript
+function trackingPurchase(data) {
+    // google analytics
+    gaPurchase(data);
+    // facebook analytics
+    ...
+}
+```
 ## V. Xem sản phẩm (event: VIEW_LIST_PRODUCTS_EVENT)
 - Hàm ga tracking xem danh sách sản phẩm
 ```javascript
