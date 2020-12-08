@@ -1,9 +1,7 @@
 ##### Table of Contents  
-[Tracking Events](#tracking-events)  
-[Emphasis](#emphasis)  
-...snip...    
-<a name="headers"/>
-## Headers
+- [Tracking Events](#tracking-events)
+    * [Khai báo tên các event như sau](#khai-bao-ten-cac-event-nhu-sau)
+<a name="headers"/>\
 
 # Tracking Events
 ## I. Khai báo tên các event như sau
