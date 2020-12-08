@@ -1,7 +1,10 @@
 ##### Table of Contents  
 - [Tracking Events](#tracking-events)
-    * [Khai báo tên các event như sau](#khai-bao-ten-cac-event-nhu-sau)
-<a name="headers"/>\
+    * [Khai báo tên các event như sau](#i-khai-báo-tên-các-event-như-sau)
+    * [Khai báo các hàm để tracking](#ii-khai-báo-các-hàm-để-tracking)
+    * [ADD_LIST_PROUCTS_TO_CART_TRACKING_EVENT](#iii-add_list_proucts_to_cart_tracking_event)
+    * [Khai báo các hàm để tracking](#ii-khai-báo-các-hàm-để-tracking)
+    * [Khai báo các hàm để tracking](#ii-khai-báo-các-hàm-để-tracking)
 
 # Tracking Events
 ## I. Khai báo tên các event như sau
@@ -49,7 +52,7 @@ function trackingPurchase(data) {
     ...
 }
 ```
-## II. ADD_LIST_PROUCTS_TO_CART_TRACKING_EVENT
+## III. ADD_LIST_PROUCTS_TO_CART_TRACKING_EVENT
 ### 1. Mô tả:
 Thêm 1 hay nhiều sản phẩm vào giỏ hàng, trước khi gọi tới *Tag Manager* thì cần thiết lập giá trị cho 1 biến **window.ecommerceListProductsWillBeAddedToCart**
 ### 2. Trang áp dụng:
@@ -71,7 +74,7 @@ window.ecommerceListProductsWillBeAddedToCart = [{
 // gọi event tracking của tag manager tại đây => trên event đọc dữ liệu từ biến window.ecommerceListProductsWillBeAddedToCart và tiến hành tracking
 trackingAddListProductsToCart(window.ecommerceListProductsWillBeAddedToCart);
 ```
-## III. REMOVE_LIST_PROUCTS_FROM_CART_TRACKING_EVENT
+## IV. REMOVE_LIST_PROUCTS_FROM_CART_TRACKING_EVENT
 ### 1. Mô tả:
 Xóa 1 hay nhiều sản phẩm trong giỏ hàng, trước khi gọi tới *Tag Manager* thì cần thiết lập giá trị cho 1 biến **window.ecommerceListProductsWillBeRemovedFromCart**
 ### 2. Trang áp dụng
@@ -91,7 +94,7 @@ window.ecommerceListProductsWillBeRemovedFromCart = [{
 // gọi event tracking của tag manager tại đây => trên event đọc dữ liệu từ biến window.ecommerceListProductsWillBeRemovedFromCart và tiến hành tracking
 trackingRemoveListProductsFromCart(window.ecommerceListProductsWillBeRemovedFromCart);
 ```
-## IV. CHECKOUT_TRACKING_EVENT
+## V. CHECKOUT_TRACKING_EVENT
 ### 1. Mô tả:
 Đặt hàng, trước khi gọi tới *Tag Manager* thì cần thiết lập giá trị cho 1 biến **window.ecommerceCheckoutInfo**
 ### 2. Trang áp dụng:
@@ -114,7 +117,7 @@ window.ecommerceCheckoutInfo = {
 // gọi event tracking của tag manager tại đây => trên event đọc dữ liệu từ biến window.ecommerceCheckoutInfo và tiến hành tracking
 trackingCheckout(window.ecommerceCheckoutInfo)
 ```
-## V. PURCHASE_TRACKING_EVENT
+## VI. PURCHASE_TRACKING_EVENT
 ### 1. Mô tả:
 Thanh toán, trước khi gọi tới *Tag Manager* thì cần thiết lập giá trị cho 1 biến **window.ecommercePurchaseInfo**
 ### 2. Trang áp dụng:
@@ -137,7 +140,7 @@ window.ecommercePurchaseInfo = {
 // gọi event tracking của tag manager tại đây => trên event đọc dữ liệu từ biến window.ecommercePurchaseInfo và tiến hành tracking
 trackingPurchase(window.ecommercePurchaseInfo);
 ```
-## VI. VIEW_LIST_PRODUCTS_EVENT
+## VII. VIEW_LIST_PRODUCTS_EVENT
 ### 1. Mô tả:
 Xem danh sách sản phẩm, trước khi gọi tới *Tag Manager* thì cần thiết lập giá trị cho 1 biến **window.ecommerceListProductsWillBeViewed**
 ### 2. Trang áp dụng:
