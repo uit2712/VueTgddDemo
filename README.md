@@ -3,8 +3,10 @@
     * [Khai báo tên các event như sau](#i-khai-báo-tên-các-event-như-sau)
     * [Khai báo các hàm để tracking](#ii-khai-báo-các-hàm-để-tracking)
     * [ADD_LIST_PROUCTS_TO_CART_TRACKING_EVENT](#iii-add_list_proucts_to_cart_tracking_event)
-    * [Khai báo các hàm để tracking](#ii-khai-báo-các-hàm-để-tracking)
-    * [Khai báo các hàm để tracking](#ii-khai-báo-các-hàm-để-tracking)
+    * [REMOVE_LIST_PROUCTS_FROM_CART_TRACKING_EVENT](#iv-remove_list_proucts_from_cart_tracking_event)
+    * [CHECKOUT_TRACKING_EVENT](#v-checkout_tracking_event)
+    * [PURCHASE_TRACKING_EVENT](#vi-purchase_tracking_event)
+    * [VIEW_LIST_PRODUCTS_EVENT](#vii-view_list_products_event)
 
 # Tracking Events
 ## I. Khai báo tên các event như sau
