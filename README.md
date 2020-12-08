@@ -7,6 +7,13 @@
     * [CHECKOUT_TRACKING_EVENT](#v-checkout_tracking_event)
     * [PURCHASE_TRACKING_EVENT](#vi-purchase_tracking_event)
     * [VIEW_LIST_PRODUCTS_EVENT](#vii-view_list_products_event)
+- [Google analytics](#google-analytics)
+   * [ADD_LIST_PROUCTS_TO_CART_TRACKING_EVENT](#i-add_list_proucts_to_cart_tracking_event)
+   * [REMOVE_LIST_PROUCTS_FROM_CART_TRACKING_EVENT](#ii-remove_list_proucts_from_cart_tracking_event)
+   * [CHECKOUT_TRACKING_EVENT](#iii-checkout_tracking_event)
+   * [PURCHASE_TRACKING_EVENT](#iv-purchase_tracking_event)
+   * [VIEW_LIST_PRODUCTS_EVENT](#v-view_list_products_event)
+
 
 # Tracking Events
 ## I. Khai báo tên các event như sau
