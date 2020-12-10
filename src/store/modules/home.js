@@ -1,10 +1,8 @@
-import { getListShockedProducts, getListTechNews, getPromotionBanner, getTwoBanners } from '@/common/functions/page-home-functions';
+import { getListShockedProducts, getPromotionBanner, getTwoBanners } from '@/common/functions/page-home-functions';
 import {
     CATEGORY_MENU,
     LIST_SLIDERS,
-    FETCH_LIST_TECH_NEWS,
-    SET_LIST_TECH_NEWS,
-    LIST_TECH_NEWS,
+    NEWS,
     TWO_BANNERS,
     SET_TWO_BANNERS,
     FETCH_TWO_BANNERS,
@@ -39,8 +37,8 @@ export const getters = {
     [LIST_SLIDERS](state) {
         return Array.isArray(state.data?.listSliders) === true ? state.data.listSliders : [];
     },
-    [LIST_TECH_NEWS](state) {
-        return state.listTechNews;
+    [NEWS](state) {
+        return state.data?.news;
     },
     [TWO_BANNERS](state) {
         return state.twoBanners;
@@ -61,11 +59,6 @@ export const mutations = {
     [SET_HOME_DATA](state, payload) {
         if (isNullOrUndefined(payload?.value) === false) {
             state.data = payload.value;
-        }
-    },
-    [SET_LIST_TECH_NEWS](state, payload) {
-        if (Array.isArray(payload?.values) === true) {
-            state.listTechNews = payload.values;
         }
     },
     [SET_TWO_BANNERS](state, payload) {
@@ -92,10 +85,6 @@ export const actions = {
         }).catch(() => {
 
         });
-    },
-    [FETCH_LIST_TECH_NEWS]({ commit }) {
-        const data = getListTechNews();
-        commit(SET_LIST_TECH_NEWS, { values: data });
     },
     [FETCH_TWO_BANNERS]({ commit }) {
         const data = getTwoBanners();

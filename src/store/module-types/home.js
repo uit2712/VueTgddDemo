@@ -7,9 +7,7 @@ export const CATEGORY_MENU = 'CATEGORY_MENU';
 
 export const LIST_SLIDERS = 'LIST_SLIDERS';
 
-export const FETCH_LIST_TECH_NEWS = 'FETCH_LIST_TECH_NEWS';
-export const SET_LIST_TECH_NEWS = 'SET_LIST_TECH_NEWS';
-export const LIST_TECH_NEWS = 'LIST_TECH_NEWS';
+export const NEWS = 'NEWS';
 
 export const FETCH_TWO_BANNERS = 'FETCH_TWO_BANNERS';
 export const SET_TWO_BANNERS = 'SET_TWO_BANNERS';

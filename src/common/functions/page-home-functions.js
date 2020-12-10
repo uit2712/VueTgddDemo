@@ -1,24 +1,4 @@
-import { promotionBannerModel, productModel, specificNewsModel, twoBannersModel } from "@/models/home";
-
-export function getListTechNews() {
-    let sampleData = specificNewsModel;
-    sampleData = {
-        categoryName: 'Tin công nghệ',
-        categoryLink: '/tin-tuc',
-        listPosts: [
-            {
-                postUrl: '/tin-tuc/ai-se-dai-dien-trung-quoc-lap-day-cho-trong-huawei-de-lai-1310348',
-                imageUrl: 'https://cdn.tgdd.vn/Files/2020/11/30/1310348/huaweiusa_800x450-100x100.jpg',
-                title: 'Chẳng may Huawei mất vị thế trên trường quốc tế, ai sẽ đại điện Trung Quốc lấp đầy chỗ trống đó!',
-                createdTime: '1 giờ trước',
-            }
-        ]
-    }
-
-    let result = [];
-    result.push({...sampleData});
-    return result;
-}
+import { promotionBannerModel, productModel, twoBannersModel } from "@/models/home";
 
 export function getTwoBanners() {
     let sampleData = twoBannersModel;

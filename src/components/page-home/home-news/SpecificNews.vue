@@ -31,23 +31,21 @@
 </template>
 
 <script>
-import { FETCH_LIST_TECH_NEWS, HOME_MODULE, LIST_TECH_NEWS } from '@/store/module-types/home';
+import { HOME_MODULE, NEWS } from '@/store/module-types/home';
 import { mapGetters } from 'vuex';
 import ModelInfoPopover from '@/common/components/ModelInfoPopover.vue';
+import { isNullOrUndefined } from '@/common/functions';
 
 export default {
     components: {
         ModelInfoPopover,
     },
     computed: {
-        ...mapGetters(HOME_MODULE, [LIST_TECH_NEWS]),
+        ...mapGetters(HOME_MODULE, [NEWS]),
         firstCategory() {
-            return this.LIST_TECH_NEWS[0];
+            return isNullOrUndefined(this.NEWS) === false ? this.NEWS : {};
         }
     },
-    created() {
-        this.$store.dispatch(`${HOME_MODULE}/${FETCH_LIST_TECH_NEWS}`);
-    }
 }
 </script>
 
