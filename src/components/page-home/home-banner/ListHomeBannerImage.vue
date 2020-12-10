@@ -17,7 +17,7 @@
                     "
                 >
                     <div
-                        v-for="(banner, index) in LIST_HOME_BANNERS"
+                        v-for="(banner, index) in LIST_SLIDERS"
                         :key="index"
                         class="owl-item"
                         style="width: 790px"
@@ -62,9 +62,8 @@
 
 <script>
 import {
-    FETCH_LIST_HOME_BANNERS,
     HOME_MODULE,
-    LIST_HOME_BANNERS,
+    LIST_SLIDERS,
 } from '@/store/module-types/home';
 import { mapGetters } from 'vuex';
 import ModelInfoPopover from '@/common/components/ModelInfoPopover.vue';
@@ -74,13 +73,10 @@ export default {
         ModelInfoPopover,
     },
     computed: {
-        ...mapGetters(HOME_MODULE, [LIST_HOME_BANNERS]),
+        ...mapGetters(HOME_MODULE, [LIST_SLIDERS]),
         firstHomeBanner() {
-            return this.LIST_HOME_BANNERS[0];
+            return this.LIST_SLIDERS?.length > 0 ? this.LIST_SLIDERS[0] : {};
         }
-    },
-    created() {
-        this.$store.dispatch(`${HOME_MODULE}/${FETCH_LIST_HOME_BANNERS}`);
     },
 };
 </script>

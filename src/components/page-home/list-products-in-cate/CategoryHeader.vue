@@ -13,11 +13,26 @@
                 v-html="category.seeMoreProductsInfo.text"
             ></a>
         </div>
+        <model-info-popover
+            id="category-header"
+            v-bind="{
+                responseData: category,
+                apiUrl: $apiLinkType.listTwoBannersApiLink,
+                title: 'Category Header Model',
+                iconCustomStyle: 'position:absolute; top: 974px; right: -10px; z-index:9',
+                variant: 'warning',
+            }"
+        />
     </div>
 </template>
 
 <script>
+import ModelInfoPopover from '@/common/components/ModelInfoPopover.vue';
+
 export default {
+    components: {
+        ModelInfoPopover,
+    },
     props: {
         category: {
             type: Object,
@@ -54,6 +69,6 @@ export default {
                 }
             })
         }
-    }
+    },
 }
 </script>

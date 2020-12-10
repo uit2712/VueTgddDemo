@@ -39,3 +39,21 @@ export function getAllCssFrom() {
         .filter(Boolean)
         .join('\n');
 }
+
+export function isNullOrUndefined(value) {
+    return [null, undefined].indexOf(value) !== -1;
+}
+
+export function isEmptyOrNil(value) {
+    return ['', null, undefined].indexOf(value) !== -1;
+}
+
+export function getQueryParamFromUrl(paramName) {
+    if (isEmptyOrNil(paramName) === true) {
+        return '';
+    }
+
+    let uri = window.location.search.substring(1);
+    let params = new URLSearchParams(uri);
+    return params.get(paramName);
+}

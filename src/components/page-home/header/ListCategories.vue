@@ -3,7 +3,7 @@
         <div class="wrap-nav">
             <nav>
                 <a
-                    v-for="(category, index) in LIST_CATEGORIES"
+                    v-for="(category, index) in CATEGORY_MENU"
                     :key="index"
                     href="/dtdd"
                     :title="category.title"
@@ -18,14 +18,14 @@
                 responseData: firstCategory,
                 apiUrl: $apiLinkType.listCategoriesApiLink,
                 title: 'Category Model',
-                iconCustomStyle: 'position: absolute; top: 52px; right: 195px; z-index:9',
+                iconCustomStyle: 'position: absolute; top: 52px; right: 44px; z-index:9',
             }"
         />
     </fragment>
 </template>
 
 <script>
-import { FETCH_LIST_CATEGORIES, HOME_MODULE, LIST_CATEGORIES } from '@/store/module-types/home';
+import { HOME_MODULE, CATEGORY_MENU } from '@/store/module-types/home';
 import { mapGetters } from 'vuex';
 import ModelInfoPopover from '@/common/components/ModelInfoPopover.vue';
 
@@ -35,14 +35,11 @@ export default {
     },
     computed: {
         ...mapGetters(HOME_MODULE, [
-            LIST_CATEGORIES,
+            CATEGORY_MENU,
         ]),
         firstCategory() {
-            return this.LIST_CATEGORIES[0];       
+            return this.CATEGORY_MENU?.length > 0 ? this.CATEGORY_MENU[0] : {};       
         },
-    },
-    created() {
-        this.$store.dispatch(`${HOME_MODULE}/${FETCH_LIST_CATEGORIES}`);
     },
 }
 </script>

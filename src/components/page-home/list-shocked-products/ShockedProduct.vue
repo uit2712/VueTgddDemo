@@ -53,7 +53,7 @@
             v-bind="{
                 responseData: product,
                 apiUrl: $apiLinkType.listTwoBannersApiLink,
-                title: 'Shocked Product Model',
+                title: 'Product Model',
                 iconCustomStyle: `position: absolute; top: 50px; left: ${15 + 245 * product.productId}px; z-index: 9`,
                 variant: 'warning',
             }"

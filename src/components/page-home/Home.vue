@@ -13,6 +13,7 @@
 </template>
 
 <script>
+import { FETCH_HOME_DATA, HOME_MODULE } from '@/store/module-types/home';
 import HeaderVue from './header/Header.vue';
 import HomeBanner from './home-banner/HomeBanner.vue';
 import HomeNews from './home-news/HomeNews.vue';
@@ -28,7 +29,10 @@ export default {
         PromotionBanner,
         ListShockedProducts,
         ListProductsInCate,
-    }
+    },
+    created() {
+        this.$store.dispatch(`${HOME_MODULE}/${FETCH_HOME_DATA}`);
+    },
 }
 </script>
 

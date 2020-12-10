@@ -1,13 +1,9 @@
-import { getListCategories, getListHomeBannerDescriptions, getListHomeBanners, getListShockedProducts, getListTechNews, getPromotionBanner, getTwoBanners } from '@/common/functions/page-home-functions';
+import { getListHomeBannerDescriptions, getListShockedProducts, getListTechNews, getPromotionBanner, getTwoBanners } from '@/common/functions/page-home-functions';
 import {
-    FETCH_LIST_CATEGORIES,
-    FETCH_LIST_HOME_BANNERS,
     FETCH_LIST_HOME_BANNER_DESCRIPTIONS,
     LIST_HOME_BANNER_DESCRIPTIONS,
-    LIST_CATEGORIES,
-    LIST_HOME_BANNERS,
-    SET_LIST_CATEGORIES,
-    SET_LIST_HOME_BANNERS,
+    CATEGORY_MENU,
+    LIST_SLIDERS,
     SET_LIST_HOME_BANNER_DESCRIPTIONS,
     FETCH_LIST_TECH_NEWS,
     SET_LIST_TECH_NEWS,
@@ -21,25 +17,30 @@ import {
     LIST_SHOCKED_PRODUCTS,
     SET_LIST_SHOCKED_PRODUCTS,
     FETCH_LIST_SHOCKED_PRODUCTS,
+    FETCH_HOME_DATA,
+    SET_HOME_DATA
 } from '@/store/module-types/home';
 import { promotionBannerModel } from '@/models/home';
+import { isNullOrUndefined } from '@/common/functions';
+import { getHomeData } from '@/api/home';
 
 export const state = {
-    listCategories: [],
+    categoryMenu: [],
     listHomeBanners: [],
     listHomeBannerDescriptions: [],
     listTechNews: [],
     twoBanners: [],
     promotionBanner: null,
     listShockedProducts: [],
+    data: null,
 }
 
 export const getters = {
-    [LIST_CATEGORIES](state) {
-        return state.listCategories;
+    [CATEGORY_MENU](state) {
+        return Array.isArray(state.data?.categoryMenu) === true ? state.data.categoryMenu : [];
     },
-    [LIST_HOME_BANNERS](state) {
-        return state.listHomeBanners;
+    [LIST_SLIDERS](state) {
+        return Array.isArray(state.data?.listSliders) === true ? state.data.listSliders : [];
     },
     [LIST_HOME_BANNER_DESCRIPTIONS](state) {
         return state.listHomeBannerDescriptions;
@@ -63,14 +64,9 @@ export const getters = {
 }
 
 export const mutations = {
-    [SET_LIST_CATEGORIES](state, payload) {
-        if (Array.isArray(payload?.values) === true) {
-            state.listCategories = payload.values;
-        }
-    },
-    [SET_LIST_HOME_BANNERS](state, payload) {
-        if (Array.isArray(payload?.values) === true) {
-            state.listHomeBanners = payload.values;
+    [SET_HOME_DATA](state, payload) {
+        if (isNullOrUndefined(payload?.value) === false) {
+            state.data = payload.value;
         }
     },
     [SET_LIST_HOME_BANNER_DESCRIPTIONS](state, payload) {
@@ -101,13 +97,12 @@ export const mutations = {
 }
 
 export const actions = {
-    [FETCH_LIST_CATEGORIES]({ commit }) {
-        const data = getListCategories();
-        commit(SET_LIST_CATEGORIES, { values: data });
-    },
-    [FETCH_LIST_HOME_BANNERS]({ commit }) {
-        const data = getListHomeBanners();
-        commit(SET_LIST_HOME_BANNERS, { values: data });
+    [FETCH_HOME_DATA]({ commit }) {
+        getHomeData().then((data) => {
+            commit(SET_HOME_DATA, { value: data });
+        }).catch(() => {
+
+        });
     },
     [FETCH_LIST_HOME_BANNER_DESCRIPTIONS]({ commit }) {
         const data = getListHomeBannerDescriptions();

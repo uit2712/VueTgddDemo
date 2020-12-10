@@ -6,3 +6,10 @@ export const apiLinkType = {
     specificNewsApiLink: 'https://www.google.com/',
     promotionBannerApiLink: 'https://www.google.com/',
 }
+
+export const mockQueryParamType = {
+    getCategoryMenuUrl: {
+        name: 'getcategorymenuurl',
+        description: '',
+    },
+}

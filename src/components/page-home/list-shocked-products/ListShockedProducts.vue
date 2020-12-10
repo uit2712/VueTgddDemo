@@ -30,7 +30,7 @@
             v-bind="{
                 responseData: model,
                 apiUrl: $apiLinkType.listTwoBannersApiLink,
-                title: 'Shocked Product Model',
+                title: 'Product Model',
                 iconCustomStyle: 'position: absolute; top: 495px; right: 5px; z-index: 9',
                 variant: 'warning',
                 placement: 'left'
@@ -43,7 +43,7 @@
 import { FETCH_LIST_SHOCKED_PRODUCTS, HOME_MODULE, LIST_SHOCKED_PRODUCTS } from '@/store/module-types/home';
 import { mapGetters } from 'vuex';
 import ShockedProduct from './ShockedProduct.vue';
-import { shockedProductModel } from '@/models/home';
+import { productModel } from '@/models/home';
 import ModelInfoPopover from '@/common/components/ModelInfoPopover.vue';
 
 export default {
@@ -54,7 +54,7 @@ export default {
     computed: {
         ...mapGetters(HOME_MODULE, [LIST_SHOCKED_PRODUCTS]),
         model() {
-            return shockedProductModel;
+            return productModel;
         }
     },
     created() {

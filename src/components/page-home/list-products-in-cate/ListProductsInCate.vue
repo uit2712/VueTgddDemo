@@ -210,7 +210,7 @@
 </template>
 
 <script>
-import CategoryHeader from './list-featured-products/CategoryHeader.vue';
+import CategoryHeader from './CategoryHeader.vue';
 
 export default {
     components: {
