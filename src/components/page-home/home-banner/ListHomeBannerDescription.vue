@@ -1,14 +1,5 @@
 <template>
     <fragment>
-        <model-info-popover
-            id="list-banner-description"
-            v-bind="{
-                responseData: firstDescription,
-                apiUrl: $apiLinkType.listHomeBannerDescriptionsApiLink,
-                title: 'Home Banner Description Model',
-                iconCustomStyle: 'position:absolute; bottom: 33px; right:0; z-index:9',
-            }"
-        />
         <div
             id="sync2"
             class="owl-carousel owl-theme"
@@ -26,13 +17,13 @@
                     "
                 >
                     <div
-                        v-for="(desc, index) in LIST_HOME_BANNER_DESCRIPTIONS"
+                        v-for="(slider, index) in LIST_SLIDERS"
                         :key="index"
                         class="owl-item"
                         style="width: 158px"
                     >
                         <div class="item">
-                            <h3 v-html="desc.text"></h3>
+                            <h3 v-html="slider.description"></h3>
                             <i class="arrowbar"></i>
                         </div>
                     </div>
@@ -44,27 +35,17 @@
 
 <script>
 import {
-    FETCH_LIST_HOME_BANNER_DESCRIPTIONS,
     HOME_MODULE,
-    LIST_HOME_BANNER_DESCRIPTIONS,
+    LIST_SLIDERS,
 } from '@/store/module-types/home';
 import { mapGetters } from 'vuex';
-import ModelInfoPopover from '@/common/components/ModelInfoPopover.vue';
 
 export default {
-    components: {
-        ModelInfoPopover,
-    },
     computed: {
-        ...mapGetters(HOME_MODULE, [LIST_HOME_BANNER_DESCRIPTIONS]),
+        ...mapGetters(HOME_MODULE, [LIST_SLIDERS]),
         firstDescription() {
-            return this.LIST_HOME_BANNER_DESCRIPTIONS[0];
+            return this.LIST_SLIDERS?.length > 0 ? this.LIST_SLIDERS[0] : {};
         }
-    },
-    created() {
-        this.$store.dispatch(
-            `${HOME_MODULE}/${FETCH_LIST_HOME_BANNER_DESCRIPTIONS}`
-        );
     },
 };
 </script>

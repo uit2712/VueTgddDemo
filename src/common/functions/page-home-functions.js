@@ -1,17 +1,4 @@
-import { homeBannerDescriptionModel, promotionBannerModel, productModel, specificNewsModel, twoBannersModel } from "@/models/home";
-
-export function getListHomeBannerDescriptions() {
-    let sampleData = homeBannerDescriptionModel;
-    sampleData = {
-        text: 'Sắm iPhone 12<br/>Giảm Online 2 Triệu'
-    };
-
-    let result = [];
-    for (let i = 0; i < 10; i++) {
-        result.push({...sampleData});
-    }
-    return result;
-}
+import { promotionBannerModel, productModel, specificNewsModel, twoBannersModel } from "@/models/home";
 
 export function getListTechNews() {
     let sampleData = specificNewsModel;
