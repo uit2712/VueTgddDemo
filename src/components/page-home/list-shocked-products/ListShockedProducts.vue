@@ -13,7 +13,10 @@
                     <shocked-product
                         v-for="(product, index) in LIST_SHOCKED_PRODUCTS"
                         :key="index"
-                        :product="product"
+                        :product="{
+                            ...product,
+                            index,
+                        }"
                     />
                 </div>
             </div>
@@ -40,7 +43,7 @@
 </template>
 
 <script>
-import { FETCH_LIST_SHOCKED_PRODUCTS, HOME_MODULE, LIST_SHOCKED_PRODUCTS } from '@/store/module-types/home';
+import { HOME_MODULE, LIST_SHOCKED_PRODUCTS } from '@/store/module-types/home';
 import { mapGetters } from 'vuex';
 import ShockedProduct from './ShockedProduct.vue';
 import { productModel } from '@/models/home';
@@ -56,9 +59,6 @@ export default {
         model() {
             return productModel;
         }
-    },
-    created() {
-        this.$store.dispatch(`${HOME_MODULE}/${FETCH_LIST_SHOCKED_PRODUCTS}`);
     },
 };
 </script>

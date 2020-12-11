@@ -1,17 +1,13 @@
-import { getListShockedProducts, getPromotionBanner, getTwoBanners } from '@/common/functions/page-home-functions';
+import { getPromotionBanner } from '@/common/functions/page-home-functions';
 import {
     CATEGORY_MENU,
     LIST_SLIDERS,
     NEWS,
     TWO_BANNERS,
-    SET_TWO_BANNERS,
-    FETCH_TWO_BANNERS,
     PROMOTION_BANNER,
     SET_PROMOTION_BANNER,
     FETCH_PROMOTION_BANNER,
     LIST_SHOCKED_PRODUCTS,
-    SET_LIST_SHOCKED_PRODUCTS,
-    FETCH_LIST_SHOCKED_PRODUCTS,
     FETCH_HOME_DATA,
     SET_HOME_DATA
 } from '@/store/module-types/home';
@@ -41,7 +37,7 @@ export const getters = {
         return state.data?.news;
     },
     [TWO_BANNERS](state) {
-        return state.twoBanners;
+        return Array.isArray(state.data?.twoBanners) === true ? state.data.twoBanners : [];
     },
     [PROMOTION_BANNER](state) {
         if (!state.promotionBanner) {
@@ -51,7 +47,7 @@ export const getters = {
         return state.promotionBanner;
     },
     [LIST_SHOCKED_PRODUCTS](state) {
-        return state.listShockedProducts;
+        return Array.isArray(state.data?.listShockedProducts) === true ? state.data.listShockedProducts : [];
     },
 }
 
@@ -61,19 +57,9 @@ export const mutations = {
             state.data = payload.value;
         }
     },
-    [SET_TWO_BANNERS](state, payload) {
-        if (Array.isArray(payload?.values) === true) {
-            state.twoBanners = payload.values;
-        }
-    },
     [SET_PROMOTION_BANNER](state, payload) {
         if (payload?.value) {
             state.promotionBanner = payload.value;
-        }
-    },
-    [SET_LIST_SHOCKED_PRODUCTS](state, payload) {
-        if (Array.isArray(payload?.values) === true) {
-            state.listShockedProducts = payload.values;
         }
     },
 }
@@ -86,17 +72,9 @@ export const actions = {
 
         });
     },
-    [FETCH_TWO_BANNERS]({ commit }) {
-        const data = getTwoBanners();
-        commit(SET_TWO_BANNERS, { values: data });
-    },
     [FETCH_PROMOTION_BANNER]({ commit }) {
         const data = getPromotionBanner();
         commit(SET_PROMOTION_BANNER, { value: data });
-    },
-    [FETCH_LIST_SHOCKED_PRODUCTS]({ commit }) {
-        const data = getListShockedProducts();
-        commit(SET_LIST_SHOCKED_PRODUCTS, { values: data });
     },
 }
 

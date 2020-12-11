@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import { FETCH_TWO_BANNERS, HOME_MODULE, TWO_BANNERS } from '@/store/module-types/home';
+import { HOME_MODULE, TWO_BANNERS } from '@/store/module-types/home';
 import { mapGetters } from 'vuex';
 import ModelInfoPopover from '@/common/components/ModelInfoPopover.vue';
 
@@ -40,12 +40,9 @@ export default {
     computed: {
         ...mapGetters(HOME_MODULE, [TWO_BANNERS]),
         firstBanner() {
-            return this.TWO_BANNERS[0];
+            return this.TWO_BANNERS?.length > 0 ? this.TWO_BANNERS[0] : {};
         }
     },
-    created() {
-        this.$store.dispatch(`${HOME_MODULE}/${FETCH_TWO_BANNERS}`);
-    }
 };
 </script>
 

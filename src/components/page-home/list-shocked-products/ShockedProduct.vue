@@ -34,8 +34,7 @@
                     <div v-else class="price">
                         <strong>{{ product.originalPrice | formatCurrency }}</strong>
                     </div>
-                    <div v-if="product.promotionText" class="promo noimage">
-                        <p v-html="product.promotionText"></p>
+                    <div v-if="product.promotionText" class="promo noimage" v-html="product.promotionText">
                     </div>
                     <img
                         :src="product.otherInfoIconUrl"
@@ -54,7 +53,7 @@
                 responseData: product,
                 apiUrl: $apiLinkType.listTwoBannersApiLink,
                 title: 'Product Model',
-                iconCustomStyle: `position: absolute; top: 50px; left: ${15 + 245 * product.productId}px; z-index: 9`,
+                iconCustomStyle: `position: absolute; top: 50px; left: ${15 + 245 * product.index}px; z-index: 9`,
                 variant: 'warning',
             }"
         />
