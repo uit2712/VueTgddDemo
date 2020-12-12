@@ -1,17 +1,13 @@
-import { getPromotionBanner } from '@/common/functions/page-home-functions';
 import {
     CATEGORY_MENU,
     LIST_SLIDERS,
     NEWS,
     TWO_BANNERS,
     PROMOTION_BANNER,
-    SET_PROMOTION_BANNER,
-    FETCH_PROMOTION_BANNER,
     LIST_SHOCKED_PRODUCTS,
     FETCH_HOME_DATA,
     SET_HOME_DATA
 } from '@/store/module-types/home';
-import { promotionBannerModel } from '@/models/home';
 import { isNullOrUndefined } from '@/common/functions';
 import { getHomeData } from '@/api/home';
 
@@ -40,11 +36,7 @@ export const getters = {
         return Array.isArray(state.data?.twoBanners) === true ? state.data.twoBanners : [];
     },
     [PROMOTION_BANNER](state) {
-        if (!state.promotionBanner) {
-            return promotionBannerModel;
-        }
-
-        return state.promotionBanner;
+        return state.data?.promotionBanner;
     },
     [LIST_SHOCKED_PRODUCTS](state) {
         return Array.isArray(state.data?.listShockedProducts) === true ? state.data.listShockedProducts : [];
@@ -57,11 +49,6 @@ export const mutations = {
             state.data = payload.value;
         }
     },
-    [SET_PROMOTION_BANNER](state, payload) {
-        if (payload?.value) {
-            state.promotionBanner = payload.value;
-        }
-    },
 }
 
 export const actions = {
@@ -71,10 +58,6 @@ export const actions = {
         }).catch(() => {
 
         });
-    },
-    [FETCH_PROMOTION_BANNER]({ commit }) {
-        const data = getPromotionBanner();
-        commit(SET_PROMOTION_BANNER, { value: data });
     },
 }
 

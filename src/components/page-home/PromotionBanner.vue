@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import { FETCH_PROMOTION_BANNER, HOME_MODULE, PROMOTION_BANNER } from '@/store/module-types/home';
+import { HOME_MODULE, PROMOTION_BANNER } from '@/store/module-types/home';
 import { mapGetters } from 'vuex';
 import ModelInfoPopover from '@/common/components/ModelInfoPopover.vue';
 
@@ -38,8 +38,5 @@ export default {
     computed: {
         ...mapGetters(HOME_MODULE, [PROMOTION_BANNER]),
     },
-    created() {
-        this.$store.dispatch(`${HOME_MODULE}/${FETCH_PROMOTION_BANNER}`);
-    }
 };
 </script>
