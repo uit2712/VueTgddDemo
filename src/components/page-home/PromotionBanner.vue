@@ -1,5 +1,5 @@
 <template>
-    <div class="promotebanner b1">
+    <div v-if="PROMOTION_BANNER" class="promotebanner b1">
         <a
             aria-label="slide"
             data-cate="0"

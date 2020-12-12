@@ -16,8 +16,8 @@
                         :alt="product.name"
                     />
                     <label v-if="product.preorderText" class="preorder">{{ product.preorderText }}</label>
-                    <aside v-if="product.label" class="result-label temp2">
-                        <img :src="product.label.imageUrl" class="imgresult lazyloaded">
+                    <aside v-if="product.label" class="result-label" :class="[product.label.className]">
+                        <img :src="product.label.iconUrl" class="imgresult lazyloaded">
                         <span class="text">{{ product.label.text }}</span>
                     </aside>
                     <h3>{{ product.name }}</h3>

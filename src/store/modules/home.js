@@ -6,7 +6,8 @@ import {
     PROMOTION_BANNER,
     LIST_SHOCKED_PRODUCTS,
     FETCH_HOME_DATA,
-    SET_HOME_DATA
+    SET_HOME_DATA,
+    LIST_CATEGORIES
 } from '@/store/module-types/home';
 import { isNullOrUndefined } from '@/common/functions';
 import { getHomeData } from '@/api/home';
@@ -41,6 +42,9 @@ export const getters = {
     [LIST_SHOCKED_PRODUCTS](state) {
         return Array.isArray(state.data?.listShockedProducts) === true ? state.data.listShockedProducts : [];
     },
+    [LIST_CATEGORIES](state) {
+        return Array.isArray(state.data?.listCategories) === true ? state.data.listCategories : [];
+    }
 }
 
 export const mutations = {

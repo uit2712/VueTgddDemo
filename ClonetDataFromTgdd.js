@@ -9,6 +9,7 @@ function getListProductsInShockPromotion() {
             label = {
                 iconUrl: element.querySelector(".result-label")?.querySelector("img")?.src,
                 text: element.querySelector(".result-label")?.querySelector(".text")?.innerText,
+                className: element.querySelector(".result-label")?.className.split(" ").find(name => name.includes("temp")),
             }
         }
         let discountPrice = Number(element.querySelector(".price")?.querySelector("span")?.innerText?.replace(/\D/g,''));
@@ -35,6 +36,7 @@ function getListProductsInShockPromotion() {
         }
         let otherInfoIconUrl = element.querySelector(".icon-imgNew")?.src;
         let preorderText = element.querySelector(".preorder")?.innerText;
+        let isFeatured = element.classList.contains("feature");
     
         let result = {
             productId,
@@ -52,6 +54,7 @@ function getListProductsInShockPromotion() {
             installment,
             otherInfoIconUrl,
             preorderText,
+            isFeatured,
         }
     
         return result;
