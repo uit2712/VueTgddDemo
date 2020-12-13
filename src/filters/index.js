@@ -25,3 +25,11 @@ export function formatPercentFilter(number) {
 
     return number + '%';
 }
+
+export function upperCaseFirstLetterFilter(str) {
+    if (!str) {
+        return '';
+    }
+
+    return str.charAt(0).toUpperCase() + str.slice(1);
+}

@@ -1,30 +1,19 @@
 <template>
-    <li :class="{ feature: product.isFeatured === true }" :data-id="product.productId">
-        <a :href="product.link" class="vertion2020">
-            <div v-if="product.isFeatured === false" class="heightlabel">
-                <label v-if="product.installment" class="installment">Trả góp <b>{{ product.installment.value | formatPercent }}</b></label>            
+    <div class="item">
+        <a href="/sac-dtdd/sac-du-phong-polymer-10000mah-xmobile-atela-10" class=" vertion2020 large" data-s="20200107">
+            <div v-if="product.isFeatured === false && product.installment >= 0" class="heightlabel">
+                <label v-if="product.installment >= 0" class="installment">Trả góp <b>{{ product.installment | formatPercent }}</b></label>            
             </div>
-            <img width="600" height="275" :data-original="product.imageUrl" class="lazyloaded" :alt="product.name" :src="product.imageUrl">
-            <div v-if="product.isFeatured === true" class="heightlabel">
-                <aside v-if="product.label" class="result-label" :class="[product.label.className]">
-                    <img :src="product.label.iconUrl" class="imgresult lazyloaded">
-                    <span class="text">{{ product.label.text }}</span>
-                </aside>
-                <label v-if="product.installment" class="installment">Trả góp <b>{{ product.installment.value }}%</b></label>            
-            </div>
-            <aside v-if="product.isFeatured === false && product.label" class="result-label" :class="[product.label.className]">
-                <img :src="product.label.iconUrl" class="imgresult lazyloaded">
+            <img width="180" height="180" v-if="product.imageUrl" :data-original="product.imageUrl" class="lazyloaded" :alt="product.name" :src="product.imageUrl" style="opacity: 1;">
+            <aside v-if="product.label" class="result-label" :class="[product.label.className]">
+                <img v-if="product.label.iconUrl" :src="product.label.iconUrl" class="imgresult lazyloaded">
                 <span class="text">{{ product.label.text }}</span>
             </aside>
-            <h3>{{ product.name }}</h3>
+                <h3>{{ product.name }}</h3>
             <div class="props">
                 <span class="dotted" v-for="(prop, index) in product.listProperties" :key="index">{{ prop }}</span>
             </div>
-            <div v-if="isHasDiscountPrice" class="price">
-                <strong>{{ product.discountPrice | formatCurrency }}</strong>
-                <span>{{ product.originalPrice | formatCurrency }}</span>
-                <i v-if="product.discountPercent > 0">-{{ product.discountPercent | formatPercent }}</i>
-            </div>
+            <h6 v-if="product.productStatusText" class="textkm">{{ product.productStatusText }}</h6>
             <div v-else class="price">
                 <strong>{{ product.originalPrice | formatCurrency }}</strong>
             </div>
@@ -40,7 +29,7 @@
                 class="icon-imgNew cate42 left lazyloaded"
             />
         </a>
-    </li>
+    </div>
 </template>
 
 <script>

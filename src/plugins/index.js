@@ -1,6 +1,6 @@
 import { toBeautifulJSON } from '@/common/functions';
 import { apiLinkType } from '@/common/types/page-home-types';
-import { formatCurrencyFilter, formatPercentFilter } from '@/filters';
+import { formatCurrencyFilter, formatPercentFilter, upperCaseFirstLetterFilter } from '@/filters';
 
 export default {
     install(Vue) {
@@ -9,5 +9,6 @@ export default {
 
         Vue.filter('formatCurrency', formatCurrencyFilter);
         Vue.filter('formatPercent', formatPercentFilter);
+        Vue.filter('upperCaseFirstLetter', upperCaseFirstLetterFilter);
     }
 }

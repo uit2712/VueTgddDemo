@@ -5,6 +5,9 @@
             <list-products
                 :listProducts="category.listProducts"
                 :listProductsClassNames="category.listProductsClassNames"
+                :isWrappedInOwl="category.isWrappedInOwl"
+                :isLikeShockedProduct="category.isLikeShockedProduct"
+                :isOldProduct="category.isOldProduct"
             />
         </fragment>
     </fragment>
