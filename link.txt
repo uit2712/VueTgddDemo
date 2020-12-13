@@ -1,0 +1,1 @@
+http://localhost:8080/?homeurl=https://ff1c968a-2c86-4ba7-bbce-2680b549ca0a.mock.pstmn.io/home?case=case_001&footerurl=https://ff1c968a-2c86-4ba7-bbce-2680b549ca0a.mock.pstmn.io/footer?case=case_001

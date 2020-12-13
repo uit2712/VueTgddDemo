@@ -9,6 +9,7 @@
             <list-shocked-products/>
             <list-products-in-cate/>
         </section>
+        <footer-vue/>
     </fragment>
 </template>
 
@@ -20,6 +21,8 @@ import HomeNews from './home-news/HomeNews.vue';
 import ListProductsInCate from './list-products-in-cate/ListProductsInCate.vue';
 import ListShockedProducts from './list-shocked-products/ListShockedProducts.vue';
 import PromotionBanner from './PromotionBanner.vue';
+import FooterVue from './footer/Footer.vue';
+import { FETCH_FOOTER_DATA, FOOTER_MODULE } from '@/store/module-types/footer';
 
 export default {
     components: {
@@ -29,16 +32,15 @@ export default {
         PromotionBanner,
         ListShockedProducts,
         ListProductsInCate,
+        FooterVue,
     },
     created() {
         this.$store.dispatch(`${HOME_MODULE}/${FETCH_HOME_DATA}`);
+        this.$store.dispatch(`${FOOTER_MODULE}/${FETCH_FOOTER_DATA}`);
     },
 }
 </script>
 
 <style>
 @import '../../../public/css/home.css';
-/* @import '../../../public/css/top-header.css';
-@import '../../../public/css/list-categories.css';
-@import '../../../public/css/header.css'; */
 </style>

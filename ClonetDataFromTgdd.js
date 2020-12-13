@@ -1,6 +1,7 @@
 function getListProductsInShockPromotion() {
     return Array.from(document.getElementById("owl-promo")?.querySelectorAll(".item")).map(element => {
         let productId = Number(element.querySelector(".spInfo")?.value);
+        let brand = element.querySelector(".spInfo")?.dataset.brand;
         let name = element.querySelector("h3")?.innerText;
         let imageUrl = element.querySelector("h3")?.previousElementSibling?.src ? element.querySelector("h3")?.previousElementSibling.src : element.querySelector("h3")?.previousElementSibling?.previousElementSibling.src;
         let link = element.querySelector("a")?.href;
@@ -59,6 +60,7 @@ function getListProductsInShockPromotion() {
             otherInfoIconUrl,
             preorderText,
             isFeatured,
+            brand,
         }
     
         return result;
@@ -188,3 +190,43 @@ function getListOldProducts() {
     });
 }
 JSON.stringify(getListOldProducts());
+
+function getListUtilitiesInFooter() {
+    return Array.from(document.getElementById("colfoot1")?.querySelectorAll("li")).map(element => {
+        let linkEl = element.querySelector("a");
+        let link = linkEl?.href;
+        let text = linkEl?.innerText;
+        let title = linkEl?.title;
+        let isOpenInNewTab = false;
+        if (linkEl?.target) {
+            isOpenInNewTab = true;
+        }
+    
+        let result = {
+            link,
+            text,
+            title,
+            isOpenInNewTab,
+        }
+    
+        return result;
+    });
+}
+JSON.stringify(getListUtilitiesInFooter());
+
+function getListManuInCate() {
+    return Array.from(document.querySelector(".manu")?.querySelectorAll("a")).map(element => {
+        let link = element.href;
+        let name = element.dataset.name;
+        let imageUrl = element.querySelector("img")?.src;
+    
+        let result = {
+            link,
+            name,
+            imageUrl,
+        }
+    
+        return result;
+    });
+}
+JSON.stringify(getListManuInCate().filter(manu => manu.imageUrl !== undefined && manu.imageUrl !== null && manu.imageUrl !== ''));
