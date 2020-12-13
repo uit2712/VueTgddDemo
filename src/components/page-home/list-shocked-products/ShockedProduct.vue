@@ -7,7 +7,9 @@
                     class="vertion2020 large"
                     data-s="0"
                 >
-                    <div class="heightlabel"></div>
+                    <div v-if="product.installment >= 0" class="heightlabel">
+                        <label v-if="product.installment >= 0" class="installment">Trả góp <b>{{ product.installment | formatPercent }}</b></label>            
+                    </div>
                     <img
                         width="180"
                         height="180"

@@ -12,8 +12,14 @@ function getListProductsInShockPromotion() {
                 className: element.querySelector(".result-label")?.className.split(" ").find(name => name.includes("temp")),
             }
         }
-        let discountPrice = Number(element.querySelector(".price")?.querySelector("span")?.innerText?.replace(/\D/g,''));
-        let originalPrice = Number(element.querySelector(".price")?.querySelector("strong")?.innerText?.replace(/\D/g,''));
+        let discountPrice = 0;
+        let originalPrice = 0;
+        if (element.querySelector(".price")?.querySelector("span")) {
+            originalPrice = Number(element.querySelector(".price")?.querySelector("span")?.innerText?.replace(/\D/g,''));
+            discountPrice = Number(element.querySelector(".price")?.querySelector("strong")?.innerText?.replace(/\D/g,''));
+        } else {
+            originalPrice = Number(element.querySelector(".price")?.querySelector("strong")?.innerText?.replace(/\D/g,''));
+        }
         let discountPercent = Number(element.querySelector(".price")?.querySelector("i")?.innerText?.replace(/\D/g,''));
         let promotionText = element.querySelector(".promo")?.innerHTML;
         let rating;
