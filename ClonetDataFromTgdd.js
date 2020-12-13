@@ -230,3 +230,21 @@ function getListManuInCate() {
     });
 }
 JSON.stringify(getListManuInCate().filter(manu => manu.imageUrl !== undefined && manu.imageUrl !== null && manu.imageUrl !== ''));
+
+function getListPriceFilterLabelsInCate() {
+    return Array.from(document.querySelector(".fl")?.querySelectorAll("a")).map(element => {
+        let link = element.href;
+        let text = element.innerText;
+        let min = 0, max = 0;
+    
+        let result = {
+            link,
+            text,
+            min,
+            max
+        }
+    
+        return result;
+    });
+}
+JSON.stringify(getListPriceFilterLabelsInCate());
