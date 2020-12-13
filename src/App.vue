@@ -1,20 +1,24 @@
 <template>
-    <div id="app">
-        <home/>
-    </div>
+    <fragment>
+        <header-vue />
+        <router-view />
+        <footer-vue />
+    </fragment>
 </template>
-
 <script>
-import Home from '@/components/page-home/Home.vue';
+import FooterVue from './components/page-home/footer/Footer.vue';
+import HeaderVue from './components/page-home/header/Header.vue';
+import { FETCH_FOOTER_DATA, FOOTER_MODULE } from './store/module-types/footer';
+import { FETCH_HOME_DATA, HOME_MODULE } from './store/module-types/home';
 
 export default {
-    name: "App",
     components: {
-        Home,
+        FooterVue,
+        HeaderVue,
+    },
+    created() {
+        this.$store.dispatch(`${HOME_MODULE}/${FETCH_HOME_DATA}`);
+        this.$store.dispatch(`${FOOTER_MODULE}/${FETCH_FOOTER_DATA}`);
     },
 };
 </script>
-<style>
-@import '../node_modules/bootstrap/dist/css/bootstrap.css';
-@import '../node_modules/bootstrap-vue/dist/bootstrap-vue.css';
-</style>

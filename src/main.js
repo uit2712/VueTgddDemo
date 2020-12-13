@@ -4,6 +4,7 @@ import store from './store';
 import GlobalPlugin from './plugins/index';
 import Fragment from 'vue-fragment';
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
+import router from './router'
 
 Vue.config.productionTip = false;
 
@@ -17,5 +18,6 @@ Vue.use(IconsPlugin)
 
 new Vue({
   store,
-  render: h => h(App),
+  router,
+  render: h => h(App)
 }).$mount('#app')
