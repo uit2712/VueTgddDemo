@@ -7,7 +7,7 @@
             href="javascript:void(0)"
             :data-id="label.id"
             @click="filterPrice({ ...label, index })"
-            :class="{ check: selectedIndex === label.index }"
+            :class="{ check: selectedIndex === index }"
         >
             {{ label.name }}
         </a>
