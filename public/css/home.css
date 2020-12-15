@@ -3780,6 +3780,7 @@ header .wrap-nav {
 	background-color: rgb(254, 209, 1);
 	height: 40px;
 	overflow: hidden;
+	width: 100%;
 }
 
 header .wrap-nav {

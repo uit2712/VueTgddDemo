@@ -2,14 +2,22 @@
     <fragment>
         <div class="wrap-nav">
             <nav>
-                <a
+                <!-- <a
                     v-for="(category, index) in CATEGORY_MENU"
                     :key="index"
                     href="/dtdd"
                     :title="category.title"
                 >
                     <i :class="[category.iconClassName]"></i><b>{{ category.text }}</b>
-                </a>
+                </a> -->
+                <router-link
+                    v-for="(category, index) in CATEGORY_MENU"
+                    :key="index"
+                    :to="{ name: 'cate', params: { categoryId: category.id }}"
+                    :title="category.title"><i :class="[category.iconClassName]"
+                >
+                    </i><b>{{ category.text }}</b>
+                </router-link>
             </nav>
         </div>
         <model-info-popover
@@ -28,6 +36,7 @@
 import { HOME_MODULE, CATEGORY_MENU } from '@/store/module-types/home';
 import { mapGetters } from 'vuex';
 import ModelInfoPopover from '@/common/components/ModelInfoPopover.vue';
+import {  } from 'vue-router';
 
 export default {
     components: {

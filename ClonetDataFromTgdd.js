@@ -219,11 +219,13 @@ function getListManuInCate() {
         let link = element.href;
         let name = element.dataset.name;
         let imageUrl = element.querySelector("img")?.src;
+        let id = Number(element.dataset.id);
     
         let result = {
             link,
             name,
             imageUrl,
+            id,
         }
     
         return result;
@@ -248,3 +250,20 @@ function getListPriceFilterLabelsInCate() {
     });
 }
 JSON.stringify(getListPriceFilterLabelsInCate());
+
+function getSliderInCate() {
+    return Array.from(document.getElementById("owl-home")?.querySelectorAll(".owl-item")).map(element => {
+        let imageUrl = element.querySelector("img")?.src;
+        let link = element.querySelector("a")?.href;
+        let description = element.querySelector("img")?.alt;
+    
+        let result = {
+            link,
+            imageUrl,
+            description,
+        }
+    
+        return result;
+    });
+}
+JSON.stringify(getSliderInCate());

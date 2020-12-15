@@ -6,8 +6,8 @@
     </fragment>
 </template>
 <script>
-import FooterVue from './components/page-home/footer/Footer.vue';
-import HeaderVue from './components/page-home/header/Header.vue';
+import FooterVue from './components/footer/Footer.vue';
+import HeaderVue from './components/header/Header.vue';
 import { FETCH_FOOTER_DATA, FOOTER_MODULE } from './store/module-types/footer';
 import { FETCH_HOME_DATA, HOME_MODULE } from './store/module-types/home';
 
