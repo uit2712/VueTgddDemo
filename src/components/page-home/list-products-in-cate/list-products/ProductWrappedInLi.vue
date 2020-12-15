@@ -4,12 +4,12 @@
             <div v-if="product.isFeatured === false && product.installment >= 0" class="heightlabel">
                 <label v-if="product.installment >= 0" class="installment">Trả góp <b>{{ product.installment | formatPercent }}</b></label>            
             </div>
-            <img v-if="product.imageUrl" width="600" height="275" :data-original="product.imageUrl" class="lazyloaded" :alt="product.name" :src="product.imageUrl">
+            <img v-if="product.imageUrl" width="600" height="275" :data-original="product.imageUrl" class="lazyloaded" :alt="product.name" v-lazy="product.imageUrl">
             <div v-if="product.isFeatured === true" class="heightlabel">
                 <label v-if="product.installment >= 0" class="installment">Trả góp <b>{{ product.installment | formatPercent }}</b></label>            
             </div>
             <aside v-if="product.label" class="result-label" :class="[product.label.className]">
-                <img v-if="product.label.iconUrl" :src="product.label.iconUrl" class="imgresult lazyloaded">
+                <img v-if="product.label.iconUrl" v-lazy="product.label.iconUrl" class="imgresult lazyloaded">
                 <span class="text">{{ product.label.text }}</span>
             </aside>
             <h3>{{ product.name }}</h3>
@@ -33,7 +33,7 @@
             <img
                 v-if="product.otherInfoIconUrl"
                 :data-original="product.otherInfoIconUrl"
-                :src="product.otherInfoIconUrl"
+                v-lazy="product.otherInfoIconUrl"
                 class="icon-imgNew cate42 left lazyloaded"
             />
         </a>
@@ -43,16 +43,16 @@
             <div v-if="product.isFeatured === false" class="heightlabel">
                 <label v-if="product.installment >= 0" class="installment">Trả góp <b>{{ product.installment | formatPercent }}</b></label>            
             </div>
-            <img v-if="product.imageUrl" width="600" height="275" :data-original="product.imageUrl" class="lazyloaded" :alt="product.name" :src="product.imageUrl">
+            <img v-if="product.imageUrl" width="600" height="275" :data-original="product.imageUrl" class="lazyloaded" :alt="product.name" v-lazy="product.imageUrl">
             <div v-if="product.isFeatured === true" class="heightlabel">
                 <aside v-if="product.label" class="result-label" :class="[product.label.className]">
-                    <img :src="product.label.iconUrl" class="imgresult lazyloaded">
+                    <img v-lazy="product.label.iconUrl" class="imgresult lazyloaded">
                     <span class="text">{{ product.label.text }}</span>
                 </aside>
                 <label v-if="product.installment >= 0" class="installment">Trả góp <b>{{ product.installment | formatPercent }}</b></label>            
             </div>
             <aside v-if="product.isFeatured === false && product.label" class="result-label" :class="[product.label.className]">
-                <img :src="product.label.iconUrl" class="imgresult lazyloaded">
+                <img v-lazy="product.label.iconUrl" class="imgresult lazyloaded">
                 <span class="text">{{ product.label.text }}</span>
             </aside>
             <h3>{{ product.name }}</h3>
@@ -76,7 +76,7 @@
             <img
                 v-if="product.otherInfoIconUrl"
                 :data-original="product.otherInfoIconUrl"
-                :src="product.otherInfoIconUrl"
+                v-lazy="product.otherInfoIconUrl"
                 class="icon-imgNew cate42 left lazyloaded"
             />
         </a>

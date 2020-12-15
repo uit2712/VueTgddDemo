@@ -2,7 +2,7 @@
     <div class="owl-item" style="width: 240px;">
         <div class="item">
             <a :href="product.link">
-                <img width="150" height="150" :alt="product.name" :src="product.imageUrl">
+                <img width="150" height="150" :alt="product.name" v-lazy="product.imageUrl">
                 <div class="div-extend">
                     <span class="quantity">{{ product.remainingQuantity }}  máy</span>
                 </div>

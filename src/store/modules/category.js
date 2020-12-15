@@ -13,6 +13,9 @@ import {
     LIST_MANUFACTURERS,
     TWO_BANNERS,
     SLIDER,
+    LIST_PRODUCTS,
+    SET_FILTERED_LIST_PRODUCTS,
+    FILTERED_LIST_PRODUCTS
 } from '../module-types/category';
 import { getCategoryData } from '@/api/category';
 
@@ -21,6 +24,7 @@ export const state = {
     isFetchCategoryData: false,
     listChoosedManufacturers: [],
     currentCategoryInfo: null,
+    filteredListProducts: [],
 }
 
 export const getters = {
@@ -45,6 +49,12 @@ export const getters = {
     },
     [SLIDER](state) {
         return Array.isArray(state.currentCategoryInfo?.slider) === true ? state.currentCategoryInfo?.slider : [];
+    },
+    [LIST_PRODUCTS](state) {
+        return Array.isArray(state.currentCategoryInfo?.listProducts) === true ? state.currentCategoryInfo?.listProducts : [];
+    },
+    [FILTERED_LIST_PRODUCTS](state) {
+        return state.filteredListProducts;
     }
 }
 
@@ -79,6 +89,11 @@ export const mutations = {
     [SET_CURRENT_CATEGORY_INFO](state, payload) {
         if (state.data && Number.isInteger(payload?.value) === true) {
             state.currentCategoryInfo = state.data.find(cate => cate.categoryId === payload.value);
+        }
+    },
+    [SET_FILTERED_LIST_PRODUCTS](state, payload) {
+        if (Array.isArray(payload.values) === true) {
+            state.filteredListProducts = payload.values;
         }
     }
 }

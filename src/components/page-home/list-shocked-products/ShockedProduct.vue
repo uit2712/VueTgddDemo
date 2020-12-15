@@ -13,13 +13,13 @@
                     <img
                         width="180"
                         height="180"
-                        :src="product.imageUrl"
+                        v-lazy="product.imageUrl"
                         class="lazyloaded"
                         :alt="product.name"
                     />
                     <label v-if="product.preorderText" class="preorder">{{ product.preorderText }}</label>
                     <aside v-if="product.label" class="result-label" :class="[product.label.className]">
-                        <img :src="product.label.iconUrl" class="imgresult lazyloaded">
+                        <img v-lazy="product.label.iconUrl" class="imgresult lazyloaded">
                         <span class="text">{{ product.label.text }}</span>
                     </aside>
                     <h3>{{ product.name }}</h3>
@@ -39,7 +39,7 @@
                     <div v-if="product.promotionText" class="promo noimage" v-html="product.promotionText">
                     </div>
                     <img
-                        :src="product.otherInfoIconUrl"
+                        v-lazy="product.otherInfoIconUrl"
                         class="icon-imgNew cate42 left lazyloaded"
                     />
                     <div v-if="product.rating" class="ratingresult">

@@ -8,7 +8,7 @@
             data-place="1210"
             :href="banner.link"
         >
-            <img style="cursor:pointer" :src="banner.imageUrl" alt="M51" width="390" height="80"/>
+            <img style="cursor:pointer" v-lazy="banner.imageUrl" alt="M51" width="390" height="80"/>
         </a>         
     </div>
 </template>

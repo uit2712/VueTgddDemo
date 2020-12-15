@@ -7,7 +7,7 @@
         @click="check"
         :class="{ check: isCheck === true }"
     >
-        <img :src="item.imageUrl"/>
+        <img v-lazy="item.imageUrl"/>
     </a>
 </template>
 

@@ -202,13 +202,32 @@
 </template>
 
 <script>
+import { CATEGORY_MODULE, LIST_CHOOSED_MANUFACTURERS, LIST_PRODUCTS, SET_FILTERED_LIST_PRODUCTS } from '@/store/module-types/category';
+import { mapGetters } from 'vuex';
 import ChoosedFilter from './choosed-filter/ChoosedFilter.vue';
 import Manufacturer from './manufacturer/Manufacturer.vue';
+import { manuFilter } from '@/design-patterns/chain-of-responsibilities/filters/manufacturer-filter';
+import filter from '@/design-patterns/chain-of-responsibilities/filters';
 
 export default {
     components: {
         Manufacturer,
         ChoosedFilter,
+    },
+    computed: {
+        ...mapGetters(CATEGORY_MODULE, [
+            LIST_CHOOSED_MANUFACTURERS,
+            LIST_PRODUCTS,
+        ])
+    },
+    watch: {
+        LIST_CHOOSED_MANUFACTURERS: {
+            deep: true,
+            handler: function(values) {
+                manuFilter.setListManufactures(values);
+                this.$store.commit(`${CATEGORY_MODULE}/${SET_FILTERED_LIST_PRODUCTS}`, { values: filter.filter(this.LIST_PRODUCTS) });
+            }
+        }
     }
 }
 </script>

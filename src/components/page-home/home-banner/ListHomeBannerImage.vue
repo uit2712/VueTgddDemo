@@ -31,7 +31,7 @@
                                 onclick="jQuery.ajax({ url: 'https://www.thegioididong.com/bannertracking?bid=39074&amp;r='+ (new Date).getTime(), async: true, cache: false });"
                                 ><img
                                     style="cursor: pointer"
-                                    :src="banner.url"
+                                    v-lazy="banner.url"
                                     :alt="banner.description"
                                     width="800"
                                     height="300"

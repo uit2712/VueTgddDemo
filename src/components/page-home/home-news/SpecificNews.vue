@@ -10,7 +10,7 @@
                     <img
                         width="100"
                         height="70"
-                        :src="post.imageUrl"
+                        v-lazy="post.imageUrl"
                         :alt="post.title"
                     />
                     <h3>{{ post.title }}</h3>

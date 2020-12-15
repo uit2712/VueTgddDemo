@@ -9,7 +9,7 @@
         >
             <img
                 style="cursor: pointer"
-                :src="banner.imageUrl"
+                v-lazy="banner.imageUrl"
                 alt="M51"
                 width="398"
                 height="110"

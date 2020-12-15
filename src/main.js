@@ -4,12 +4,14 @@ import store from './store';
 import GlobalPlugin from './plugins/index';
 import Fragment from 'vue-fragment';
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
-import router from './router'
+import router from './router';
+import VueLazyload from 'vue-lazyload'
 
 Vue.config.productionTip = false;
 
 Vue.use(GlobalPlugin);
 Vue.use(Fragment.Plugin);
+Vue.use(VueLazyload);
 
 // Install BootstrapVue
 Vue.use(BootstrapVue)

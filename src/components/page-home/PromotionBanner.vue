@@ -8,7 +8,7 @@
             onclick="jQuery.ajax({ url: 'https://www.thegioididong.com/bannertracking?bid=38852&amp;r='+ (new Date).getTime(), async: true, cache: false });"
             ><img
                 style="cursor: pointer"
-                :src="PROMOTION_BANNER.imageUrl"
+                v-lazy="PROMOTION_BANNER.imageUrl"
                 :alt="PROMOTION_BANNER.description"
                 width="1200"
                 height="75"

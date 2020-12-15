@@ -5,9 +5,9 @@
                 <div v-if="product.isFeatured === false && product.installment >= 0" class="heightlabel">
                     <label v-if="product.installment >= 0" class="installment">Trả góp <b>{{ product.installment | formatPercent }}</b></label>            
                 </div>
-                <img width="180" height="180" v-if="product.imageUrl" :data-original="product.imageUrl" class="lazyloaded" :alt="product.name" :src="product.imageUrl" style="opacity: 1;">
+                <img width="180" height="180" v-if="product.imageUrl" :data-original="product.imageUrl" class="lazyloaded" :alt="product.name" v-lazy="product.imageUrl" style="opacity: 1;">
                 <aside v-if="product.label" class="result-label" :class="[product.label.className]">
-                    <img v-if="product.label.iconUrl" :src="product.label.iconUrl" class="imgresult lazyloaded">
+                    <img v-if="product.label.iconUrl" v-lazy="product.label.iconUrl" class="imgresult lazyloaded">
                     <span class="text">{{ product.label.text }}</span>
                 </aside>
                     <h3>{{ product.name }}</h3>
@@ -31,7 +31,7 @@
                 <img
                     v-if="product.otherInfoIconUrl"
                     :data-original="product.otherInfoIconUrl"
-                    :src="product.otherInfoIconUrl"
+                    v-lazy="product.otherInfoIconUrl"
                     class="icon-imgNew cate42 left lazyloaded"
                 />
             </a>
