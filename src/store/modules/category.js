@@ -2,7 +2,6 @@ import { isNullOrUndefined } from '@/common/functions';
 import {
     FETCH_CATEGORY_DATA,
     SET_CATEGORY_DATA,
-    CATEGORY_INFO_BY_ID,
     SET_IS_FETCH_CATEGORY_DATA,
     IS_FETCH_CATEGORY_DATA,
     LIST_CHOOSED_MANUFACTURERS,
@@ -10,6 +9,10 @@ import {
     REMOVE_ALL_LIST_CHOOSED_MANUFACTURERS,
     REMOVE_CHOOSED_MANUFACTURER,
     IS_CHOOSED_MANUFACTURER,
+    SET_CURRENT_CATEGORY_INFO,
+    LIST_MANUFACTURERS,
+    TWO_BANNERS,
+    SLIDER,
 } from '../module-types/category';
 import { getCategoryData } from '@/api/category';
 
@@ -17,16 +20,10 @@ export const state = {
     data: null,
     isFetchCategoryData: false,
     listChoosedManufacturers: [],
+    currentCategoryInfo: null,
 }
 
 export const getters = {
-    [CATEGORY_INFO_BY_ID]: (state) => ({ id }) => {
-        if (Array.isArray(state.data) === false) {
-            return null;
-        }
-
-        return state.data.find(cate => cate.categoryId === id);
-    },
     [IS_FETCH_CATEGORY_DATA](state) {
         return state.isFetchCategoryData === true;
     },
@@ -39,6 +36,15 @@ export const getters = {
         }
 
         return false;
+    },
+    [LIST_MANUFACTURERS](state) {
+        return Array.isArray(state.currentCategoryInfo?.listManufactures) === true ? state.currentCategoryInfo?.listManufactures : [];
+    },
+    [TWO_BANNERS](state) {
+        return Array.isArray(state.currentCategoryInfo?.twoBanners) === true ? state.currentCategoryInfo?.twoBanners : [];
+    },
+    [SLIDER](state) {
+        return Array.isArray(state.currentCategoryInfo?.slider) === true ? state.currentCategoryInfo?.slider : [];
     }
 }
 
@@ -70,15 +76,23 @@ export const mutations = {
             state.listChoosedManufacturers = state.listChoosedManufacturers.filter(manu => payload.value !== manu.id);
         }
     },
+    [SET_CURRENT_CATEGORY_INFO](state, payload) {
+        if (state.data && Number.isInteger(payload?.value) === true) {
+            state.currentCategoryInfo = state.data.find(cate => cate.categoryId === payload.value);
+        }
+    }
 }
 
 export const actions = {
     [FETCH_CATEGORY_DATA]({ commit }) {
-        getCategoryData().then((data) => {
-            commit(SET_CATEGORY_DATA, { value: data });
-            commit(SET_IS_FETCH_CATEGORY_DATA, { value: true });
-        }).catch(() => {
-
+        return new Promise((resolve, reject) => {
+            getCategoryData().then((data) => {
+                commit(SET_CATEGORY_DATA, { value: data });
+                commit(SET_IS_FETCH_CATEGORY_DATA, { value: true });
+                resolve();
+            }).catch(() => {
+                reject();
+            });
         });
     },
 }

@@ -1,6 +1,6 @@
 <template>
     <div class="filter">
-        <manufacturer :listManufactures="listManufactures"/>
+        <manufacturer/>
         <div class="fl price">
             <label>Chọn mức giá: </label>
             <a href="/dtdd?p=duoi-2-trieu" class=" " data-id="7">
@@ -209,12 +209,6 @@ export default {
     components: {
         Manufacturer,
         ChoosedFilter,
-    },
-    props: {
-        listManufactures: {
-            required: false,
-            default: () => [],
-        }
     }
 }
 </script>

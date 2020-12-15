@@ -1,7 +1,7 @@
 <template>
     <div class="right">
         <a
-            v-for="(banner, index) in listBanners"
+            v-for="(banner, index) in TWO_BANNERS"
             :key="index"
             aria-label="slide"
             data-cate="42"
@@ -14,12 +14,12 @@
 </template>
 
 <script>
+import { CATEGORY_MODULE } from '@/store/module-types/category'
+import { mapGetters } from 'vuex'
+import { TWO_BANNERS } from '@/store/module-types/category';
 export default {
-    props: {
-        listBanners: {
-            required: false,
-            default: () =>[],
-        }
+    computed: {
+        ...mapGetters(CATEGORY_MODULE, [TWO_BANNERS]),
     }
 }
 </script>
