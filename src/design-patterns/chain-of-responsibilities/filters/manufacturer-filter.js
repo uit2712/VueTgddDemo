@@ -11,7 +11,8 @@ class ManufacturerFilter {
     }
 
     filter(listProducts = []) {
-        if (this.listManufactures.length === 0) {
+        let listManuNames = this.listManufactures.filter(manu => Number.isInteger(manu.actualId) === false).map(manu => manu.name);
+        if (Array.isArray(listManuNames) === false || listManuNames.length === 0) {
             if (this.nextFilter) {
                 return this.nextFilter?.filter(listProducts);
             }
@@ -19,7 +20,6 @@ class ManufacturerFilter {
             return listProducts;
         }
 
-        let listManuNames = this.listManufactures.map(manu => manu.name);
         listProducts = listProducts.filter(p => listManuNames.findIndex(brand => p.brand.toLowerCase() === brand.toLowerCase()) >= 0);
         if (this.nextFilter) {
             return this.nextFilter?.filter(listProducts);

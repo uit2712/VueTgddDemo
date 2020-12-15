@@ -5,17 +5,17 @@
             :key="index"
             :item="item"
             :initIsChecked="IS_CHOOSED_MANUFACTURER({ value: item.id })"
-            @select="ADD_NEW_CHOOSED_MANUFACTURER({ value: $event })"
-            @unselect="REMOVE_CHOOSED_MANUFACTURER({ value: $event.id })"
+            @select="ADD_NEW_CHOOSED_FILTER({ value: $event })"
+            @unselect="REMOVE_CHOOSED_FILTER({ value: $event.id })"
         />
     </div>
 </template>
 
 <script>
 import {
-    ADD_NEW_CHOOSED_MANUFACTURER,
+    ADD_NEW_CHOOSED_FILTER,
     CATEGORY_MODULE,
-    REMOVE_CHOOSED_MANUFACTURER,
+    REMOVE_CHOOSED_FILTER,
     IS_CHOOSED_MANUFACTURER,
     LIST_MANUFACTURERS
 } from '@/store/module-types/category';
@@ -34,8 +34,8 @@ export default {
     },
     methods: {
         ...mapMutations(CATEGORY_MODULE, [
-            ADD_NEW_CHOOSED_MANUFACTURER,
-            REMOVE_CHOOSED_MANUFACTURER,
+            ADD_NEW_CHOOSED_FILTER,
+            REMOVE_CHOOSED_FILTER,
         ]),
     },
 }

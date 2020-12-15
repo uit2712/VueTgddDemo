@@ -236,14 +236,13 @@ JSON.stringify(getListManuInCate().filter(manu => manu.imageUrl !== undefined &&
 function getListPriceFilterLabelsInCate() {
     return Array.from(document.querySelector(".fl")?.querySelectorAll("a")).map(element => {
         let link = element.href;
-        let text = element.innerText;
-        let min = 0, max = 0;
+        let name = element.innerText;
+        let id = Number(element.dataset.id);
     
         let result = {
             link,
-            text,
-            min,
-            max
+            name,
+            id
         }
     
         return result;

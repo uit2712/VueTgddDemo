@@ -4,10 +4,10 @@ import {
     SET_CATEGORY_DATA,
     SET_IS_FETCH_CATEGORY_DATA,
     IS_FETCH_CATEGORY_DATA,
-    LIST_CHOOSED_MANUFACTURERS,
-    ADD_NEW_CHOOSED_MANUFACTURER,
-    REMOVE_ALL_LIST_CHOOSED_MANUFACTURERS,
-    REMOVE_CHOOSED_MANUFACTURER,
+    LIST_CHOOSED_FILTERS,
+    ADD_NEW_CHOOSED_FILTER,
+    REMOVE_ALL_LIST_CHOOSED_FILTERS,
+    REMOVE_CHOOSED_FILTER,
     IS_CHOOSED_MANUFACTURER,
     SET_CURRENT_CATEGORY_INFO,
     LIST_MANUFACTURERS,
@@ -15,28 +15,33 @@ import {
     SLIDER,
     LIST_PRODUCTS,
     SET_FILTERED_LIST_PRODUCTS,
-    FILTERED_LIST_PRODUCTS
+    FILTERED_LIST_PRODUCTS,
+    LIST_PRICE_FILTER_LABELS,
+    SELECTED_FILTER_PRICE_LABEL,
+    SET_SELECTED_FILTER_PRICE_LABEL
 } from '../module-types/category';
 import { getCategoryData } from '@/api/category';
+import Vue from 'vue';
 
 export const state = {
     data: null,
     isFetchCategoryData: false,
-    listChoosedManufacturers: [],
+    listChoosedFilter: [],
     currentCategoryInfo: null,
     filteredListProducts: [],
+    selectedFilterPriceLabel: null,
 }
 
 export const getters = {
     [IS_FETCH_CATEGORY_DATA](state) {
         return state.isFetchCategoryData === true;
     },
-    [LIST_CHOOSED_MANUFACTURERS](state) {
-        return state.listChoosedManufacturers;
+    [LIST_CHOOSED_FILTERS](state) {
+        return state.listChoosedFilter;
     },
     [IS_CHOOSED_MANUFACTURER]: (state) => (payload) => {
         if (Number.isInteger(payload?.value) === true) {
-            return state.listChoosedManufacturers.findIndex(manu => payload.value === manu.id) >= 0;
+            return state.listChoosedFilter.findIndex(item => payload.value === item.id) >= 0;
         }
 
         return false;
@@ -55,6 +60,12 @@ export const getters = {
     },
     [FILTERED_LIST_PRODUCTS](state) {
         return state.filteredListProducts;
+    },
+    [LIST_PRICE_FILTER_LABELS](state) {
+        return Array.isArray(state.currentCategoryInfo?.listPriceFilterLabels) === true ? state.currentCategoryInfo?.listPriceFilterLabels : [];
+    },
+    [SELECTED_FILTER_PRICE_LABEL](state) {
+        return state.listChoosedFilter.find(item => item.id === -99999);
     }
 }
 
@@ -67,23 +78,23 @@ export const mutations = {
     [SET_IS_FETCH_CATEGORY_DATA](state, payload) {
         state.isFetchCategoryData = payload?.value;
     },
-    [ADD_NEW_CHOOSED_MANUFACTURER](state, payload) {
+    [ADD_NEW_CHOOSED_FILTER](state, payload) {
         if (payload?.value) {
-            state.listChoosedManufacturers = [
-                ...state.listChoosedManufacturers,
-                {
-                    ...payload.value,
-                    isCheck: true,
-                }
-            ];
+            const foundIndex = state.listChoosedFilter.findIndex(item => item.id === payload.value.id);
+            if (foundIndex < 0) {
+                state.listChoosedFilter.push(payload.value);
+            } else {
+                Vue.set(state.listChoosedFilter, foundIndex, payload.value);
+            }
         }
     },
-    [REMOVE_ALL_LIST_CHOOSED_MANUFACTURERS](state) {
-        state.listChoosedManufacturers = [];
+    [REMOVE_ALL_LIST_CHOOSED_FILTERS](state) {
+        state.listChoosedFilter = [];
+        state.selectedFilterPriceLabel = null;
     },
-    [REMOVE_CHOOSED_MANUFACTURER](state, payload) {
+    [REMOVE_CHOOSED_FILTER](state, payload) {
         if (Number.isInteger(payload?.value) === true) {
-            state.listChoosedManufacturers = state.listChoosedManufacturers.filter(manu => payload.value !== manu.id);
+            state.listChoosedFilter = state.listChoosedFilter.filter(item => payload.value !== item.id);
         }
     },
     [SET_CURRENT_CATEGORY_INFO](state, payload) {
@@ -95,6 +106,9 @@ export const mutations = {
         if (Array.isArray(payload.values) === true) {
             state.filteredListProducts = payload.values;
         }
+    },
+    [SET_SELECTED_FILTER_PRICE_LABEL](state, payload) {
+        state.selectedFilterPriceLabel = payload?.value;
     }
 }
 

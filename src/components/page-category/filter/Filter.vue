@@ -1,27 +1,7 @@
 <template>
     <div class="filter">
         <manufacturer/>
-        <div class="fl price">
-            <label>Chọn mức giá: </label>
-            <a href="/dtdd?p=duoi-2-trieu" class=" " data-id="7">
-            Dưới 2 triệu
-            </a>
-            <a href="/dtdd?p=tu-2-4-trieu" class=" " data-id="9">
-            Từ 2 - 4 triệu
-            </a>
-            <a href="/dtdd?p=tu-4-7-trieu" class=" " data-id="289">
-            Từ 4 - 7 triệu
-            </a>
-            <a href="/dtdd?p=tu-7-13-trieu" class=" " data-id="562">
-            Từ 7 - 13 triệu
-            </a>
-            <a href="/dtdd?p=tu-13-20-trieu" class=" " data-id="252">
-            Từ 13 - 20 triệu
-            </a>
-            <a href="/dtdd?p=tren-20-trieu" class=" " data-id="253">
-            Trên 20 triệu
-            </a>
-        </div>
+        <price-filter/>
         <div class="fl feature">
             <span class="criteria">Bộ lọc</span>
             <div class="property threecol">
@@ -202,26 +182,28 @@
 </template>
 
 <script>
-import { CATEGORY_MODULE, LIST_CHOOSED_MANUFACTURERS, LIST_PRODUCTS, SET_FILTERED_LIST_PRODUCTS } from '@/store/module-types/category';
+import { CATEGORY_MODULE, LIST_CHOOSED_FILTERS, LIST_PRODUCTS, SET_FILTERED_LIST_PRODUCTS } from '@/store/module-types/category';
 import { mapGetters } from 'vuex';
 import ChoosedFilter from './choosed-filter/ChoosedFilter.vue';
 import Manufacturer from './manufacturer/Manufacturer.vue';
 import { manuFilter } from '@/design-patterns/chain-of-responsibilities/filters/manufacturer-filter';
 import filter from '@/design-patterns/chain-of-responsibilities/filters';
+import PriceFilter from './PriceFilter.vue';
 
 export default {
     components: {
         Manufacturer,
         ChoosedFilter,
+        PriceFilter,
     },
     computed: {
         ...mapGetters(CATEGORY_MODULE, [
-            LIST_CHOOSED_MANUFACTURERS,
+            LIST_CHOOSED_FILTERS,
             LIST_PRODUCTS,
-        ])
+        ]),
     },
     watch: {
-        LIST_CHOOSED_MANUFACTURERS: {
+        LIST_CHOOSED_FILTERS: {
             deep: true,
             handler: function(values) {
                 manuFilter.setListManufactures(values);
