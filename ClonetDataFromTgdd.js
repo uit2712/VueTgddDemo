@@ -69,12 +69,12 @@ function getListProductsInShockPromotion() {
 JSON.stringify(getListProductsInShockPromotion());
 
 function getListFeaturedProductsInCate() {
-    return Array.from(document.getElementById("cate44")?.querySelectorAll("a")).map(element => {
-        let text = element.innerHTML;
+    return Array.from(document.querySelector("#cate44")?.querySelectorAll("a")).map(element => {
+        let name = element.innerHTML;
         let link = element.href;
         
         let result = {
-            text,
+            name,
             link,
         }
     
@@ -266,3 +266,43 @@ function getSliderInCate() {
     });
 }
 JSON.stringify(getSliderInCate());
+
+function getMainFilterInCate() {
+    return Array.from(document.querySelector(".property")?.querySelectorAll(".prop")).map(element => {
+        if (element.querySelector("strong")) {
+            let name = element.querySelector("strong").innerText;
+            let childPropsEl = element.querySelectorAll("a");
+            let listChildProps = Array.from(childPropsEl).map(propEl => {
+                return {
+                    propId: propEl.dataset.id,
+                    link: propEl.href,
+                    name: propEl.innerText.trim(),
+                }
+            });
+            if (listChildProps.length > 0) {
+                return {
+                    name,
+                    listChildProps
+                }
+            }
+        }
+    
+        return null;
+    });
+}
+JSON.stringify(getMainFilterInCate().filter(mf => mf !== null && mf !== undefined));
+
+function getListBenefitsInCate() {
+    return Array.from(document.querySelector(".plc")?.querySelectorAll("li")).map(element => {
+        let iconClassName = element.querySelector("i")?.className?.trim();
+        let name = element.querySelector("span")?.innerHTML;
+    
+        let result = {
+            iconClassName,
+            name,
+        }
+    
+        return result;
+    });
+}
+JSON.stringify(getListBenefitsInCate());

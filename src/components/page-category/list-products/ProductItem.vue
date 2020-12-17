@@ -1,5 +1,5 @@
 <template>
-    <li :class="{ feature: item.isFeatured === true }" :data-id="item.productId">
+    <li v-if="item.isVisible === true" class="product-detail" :class="{ feature: item.isFeatured === true }" :data-id="item.productId">
         <a :href="item.link" class="vertion2020">
             <div v-if="item.isFeatured === false" class="heightlabel">
                 <label v-if="item.installment >= 0" class="installment">Trả góp <b>{{ item.installment | formatPercent }}</b></label>            
