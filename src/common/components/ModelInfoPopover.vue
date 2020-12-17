@@ -68,7 +68,12 @@ export default {
             type: String,
             required: false,
             default: 'bottom',
-        }
+        },
+        modelUrl: {
+            type: String,
+            required: false,
+            default: "",
+        },
     },
     computed: {
         requestDataHtml() {
@@ -86,8 +91,22 @@ export default {
             )}</pre>`;
         },
         dataContent() {
-            return `Link api: <a href='${this.apiUrl}' target='_blank'>${this.apiUrl}</a><br/>${this.requestDataHtml}<br/>${this.responseDataHtml}`
+            return `
+                <span><span>Link api:</span> <a class="short-link" href='${this.apiUrl}' target='_blank'>${this.apiUrl}</a></span><br/>
+                <span><span>Link model:</span> <a class="short-link" href='${this.modelUrl}' target='_blank'>${this.modelUrl}</a></span><br/>
+                ${this.requestDataHtml}<br/>
+                ${this.responseDataHtml}
+            `
         }
     },
 };
 </script>
+<style>
+.short-link {
+    display: block;
+    width: 250px;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+</style>

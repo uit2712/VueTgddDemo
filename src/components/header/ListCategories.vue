@@ -24,8 +24,9 @@
             id="list-categories"
             v-bind="{
                 responseData: firstCategory,
-                apiUrl: $apiLinkType.listCategoriesApiLink,
-                title: 'Category Model',
+                apiUrl: $apiLinkType.listCategoriesApiLink.apiUrl,
+                modelUrl: $apiLinkType.listCategoriesApiLink.modelUrl,
+                title: 'Category Menu Item Model',
                 iconCustomStyle: 'position: absolute; top: 52px; right: 44px; z-index:9',
             }"
         />

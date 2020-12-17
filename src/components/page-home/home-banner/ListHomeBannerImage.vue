@@ -52,8 +52,9 @@
             id="list-banner-image"
             v-bind="{
                 responseData: firstHomeBanner,
-                apiUrl: $apiLinkType.listHomeBannerImagesApiLink,
-                title: 'Home Banner Image Model',
+                apiUrl: $apiLinkType.listHomeBannerImagesApiLink.apiUrl,
+                modelUrl: $apiLinkType.listHomeBannerImagesApiLink.modelUrl,
+                title: 'Slider Item Model',
                 iconCustomStyle: 'position:absolute; top: 0; right:0;z-index:9',
             }"
         />
