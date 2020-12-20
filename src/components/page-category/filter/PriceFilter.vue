@@ -11,6 +11,17 @@
         >
             {{ label.name }}
         </a>
+        <model-info-popover
+            id="price-filter"
+            v-bind="{
+                responseData: firstPriceFilterLabel,
+                apiUrl: $apiLinkType.listPriceFilterLabelsApiLink.apiUrl,
+                modelUrl: $apiLinkType.listPriceFilterLabelsApiLink.modelUrl,
+                title: 'Manufacturer Model',
+                iconCustomStyle: 'position:absolute; top: 300px; right: 515px; z-index:9',
+                variant: 'warning',
+            }"
+        />
     </div>
 </template>
 
@@ -19,8 +30,12 @@ import { ADD_NEW_CHOOSED_FILTER, CATEGORY_MODULE, SELECTED_FILTER_PRICE_LABEL, L
 import { mapGetters } from 'vuex';
 import _filter from '@/design-patterns/chain-of-responsibilities/filters';
 import { priceFilter } from '@/design-patterns/chain-of-responsibilities/filters/price-filter';
+import ModelInfoPopover from '@/common/components/ModelInfoPopover.vue';
 
 export default {
+    components: {
+        ModelInfoPopover
+    },
     computed: {
         ...mapGetters(CATEGORY_MODULE, [
             LIST_PRICE_FILTER_LABELS,
@@ -29,6 +44,9 @@ export default {
         ]),
         selectedIndex() {
             return Number.isInteger(this.SELECTED_FILTER_PRICE_LABEL?.index) === true ? this.SELECTED_FILTER_PRICE_LABEL?.index : -1;
+        },
+        firstPriceFilterLabel() {
+            return this.LIST_PRICE_FILTER_LABELS?.length > 0 ? this.LIST_PRICE_FILTER_LABELS[0] : {};
         }
     },
     methods: {
@@ -55,3 +73,8 @@ export default {
     }
 }
 </script>
+<style>
+#price-filter {
+    padding-right: 0px !important;
+}
+</style>

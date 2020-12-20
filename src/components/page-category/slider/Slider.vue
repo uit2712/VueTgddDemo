@@ -22,6 +22,16 @@
                 <div class="owl-next">›</div>
             </div>
         </div>
+        <model-info-popover
+            id="slider"
+            v-bind="{
+                responseData: firstSlider,
+                apiUrl: $apiLinkType.sliderInCateApiLink.apiUrl,
+                modelUrl: $apiLinkType.sliderInCateApiLink.modelUrl,
+                title: 'Slider Item Model',
+                iconCustomStyle: 'position: absolute; top: 0px; right: 0px; z-index:9',
+            }"
+        />
     </div>
 </template>
 
@@ -29,13 +39,22 @@
 import { CATEGORY_MODULE, SLIDER } from '@/store/module-types/category';
 import { mapGetters } from 'vuex';
 import SliderItem from './SliderItem.vue';
+import ModelInfoPopover from '@/common/components/ModelInfoPopover.vue';
 
 export default {
     components: {
         SliderItem,
+        ModelInfoPopover,
     },
     computed: {
         ...mapGetters(CATEGORY_MODULE, [SLIDER]),
+        firstSlider() {
+            if (this.SLIDER.length > 0) {
+                return this.SLIDER[0];
+            }
+
+            return {};
+        }
     }
 }
 </script>

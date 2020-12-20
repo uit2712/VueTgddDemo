@@ -7,7 +7,6 @@ export const apiLinkType = {
         apiUrl: 'https://app.swaggerhub.com/apis-docs/uit2712/tgdd-dmx-2-site-2021/1.0.0#/HomeController/getHomeSlider',
         modelUrl: 'https://app.swaggerhub.com/apis-docs/uit2712/tgdd-dmx-2-site-2021/1.0.0#/Slider',
     },
-    listHomeBannerDescriptionsApiLink: 'https://www.google.com/',
     listTwoBannersApiLink: {
         apiUrl: 'https://app.swaggerhub.com/apis-docs/uit2712/tgdd-dmx-2-site-2021/1.0.0#/HomeController/getTwoBanners',
         modelUrl: 'https://app.swaggerhub.com/apis-docs/uit2712/tgdd-dmx-2-site-2021/1.0.0#/BannerInfo',
@@ -31,7 +30,23 @@ export const apiLinkType = {
     listProductsInCateApiLink: {
         apiUrl: 'https://app.swaggerhub.com/apis-docs/uit2712/tgdd-dmx-2-site-2021/1.0.0#/HomeController/getListShockedProducts',
         modelUrl: 'https://app.swaggerhub.com/apis-docs/uit2712/tgdd-dmx-2-site-2021/1.0.0#/Product'
-    }
+    },
+    sliderInCateApiLink: {
+        apiUrl: 'https://app.swaggerhub.com/apis-docs/uit2712/tgdd-dmx-2-site-2021/1.0.0#/CategoryController/getCategorySliders',
+        modelUrl: 'https://app.swaggerhub.com/apis-docs/uit2712/tgdd-dmx-2-site-2021/1.0.0#/Slider'
+    },
+    twoBannersInCateApiLink: {
+        apiUrl: 'https://app.swaggerhub.com/apis-docs/uit2712/tgdd-dmx-2-site-2021/1.0.0#/CategoryController/getTwoBannersInCategory',
+        modelUrl: 'https://app.swaggerhub.com/apis-docs/uit2712/tgdd-dmx-2-site-2021/1.0.0#/BannerInfo'
+    },
+    listManuApiLink: {
+        apiUrl: 'https://app.swaggerhub.com/apis-docs/uit2712/tgdd-dmx-2-site-2021/1.0.0#/CategoryController/getListFilterLabels',
+        modelUrl: 'https://app.swaggerhub.com/apis-docs/uit2712/tgdd-dmx-2-site-2021/1.0.0#/PropertyFilterLabel',
+    },
+    listPriceFilterLabelsApiLink: {
+        apiUrl: 'https://app.swaggerhub.com/apis-docs/uit2712/tgdd-dmx-2-site-2021/1.0.0#/CategoryController/getListPriceFilterLabels',
+        modelUrl: 'https://app.swaggerhub.com/apis-docs/uit2712/tgdd-dmx-2-site-2021/1.0.0#/PropertyFilterLabel',
+    },
 }
 
 export const mockQueryParamType = {
