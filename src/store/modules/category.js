@@ -18,7 +18,8 @@ import {
     FILTERED_LIST_PRODUCTS,
     LIST_PRICE_FILTER_LABELS,
     SELECTED_FILTER_PRICE_LABEL,
-    SET_SELECTED_FILTER_PRICE_LABEL
+    SET_SELECTED_FILTER_PRICE_LABEL,
+    MAIN_FILTER
 } from '../module-types/category';
 import { getCategoryData } from '@/api/category';
 import Vue from 'vue';
@@ -66,7 +67,10 @@ export const getters = {
     },
     [SELECTED_FILTER_PRICE_LABEL](state) {
         return state.listChoosedFilter.find(item => item.id === -99999);
-    }
+    },
+    [MAIN_FILTER](state) {
+        return Array.isArray(state.currentCategoryInfo?.mainFilter) === true ? state.currentCategoryInfo?.mainFilter : [];
+    },
 }
 
 export const mutations = {

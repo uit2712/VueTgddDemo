@@ -47,6 +47,10 @@ export const apiLinkType = {
         apiUrl: 'https://app.swaggerhub.com/apis-docs/uit2712/tgdd-dmx-2-site-2021/1.0.0#/CategoryController/getListPriceFilterLabels',
         modelUrl: 'https://app.swaggerhub.com/apis-docs/uit2712/tgdd-dmx-2-site-2021/1.0.0#/PropertyFilterLabel',
     },
+    mainFilterLabelsApiLink: {
+        apiUrl: 'https://app.swaggerhub.com/apis-docs/uit2712/tgdd-dmx-2-site-2021/1.0.0#/CategoryController/getMainFilter',
+        modelUrl: 'https://app.swaggerhub.com/apis-docs/uit2712/tgdd-dmx-2-site-2021/1.0.0#/MainFilter',
+    },
 }
 
 export const mockQueryParamType = {
