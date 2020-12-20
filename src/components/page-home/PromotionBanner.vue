@@ -17,7 +17,8 @@
             id="promotion-banner"
             v-bind="{
                 responseData: PROMOTION_BANNER,
-                apiUrl: $apiLinkType.promotionBannerApiLink,
+                apiUrl: $apiLinkType.promotionBannerApiLink.apiUrl,
+                modelUrl: $apiLinkType.promotionBannerApiLink.modelUrl,
                 title: 'Promotion Banner Model',
                 iconCustomStyle: 'position:absolute; top: 374px; right:0; z-index:9',
                 variant: 'dark',

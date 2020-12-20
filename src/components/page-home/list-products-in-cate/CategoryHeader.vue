@@ -10,12 +10,13 @@
             ></a>
         </div>
         <model-info-popover
-            id="category-header"
+            :id="`category-header-${category.categoryId}`"
             v-bind="{
                 responseData: model,
-                apiUrl: $apiLinkType.listTwoBannersApiLink,
+                apiUrl: $apiLinkType.categoryHeaderApiLink.apiUrl,
+                modelUrl: $apiLinkType.categoryHeaderApiLink.modelUrl,
                 title: 'Category Header Model',
-                iconCustomStyle: 'position:absolute; top: 974px; right: -10px; z-index:9',
+                iconCustomStyle: `position:absolute; top: 930px; right: -10px; z-index:9`,
                 variant: 'warning',
             }"
         />
@@ -34,6 +35,11 @@ export default {
         category: {
             type: Object,
             required: true,
+        },
+        index: {
+            type: Number,
+            required: false,
+            default: 0,
         }
     },
     computed: {

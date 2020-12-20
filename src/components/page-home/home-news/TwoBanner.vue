@@ -19,7 +19,8 @@
             id="two-banners"
             v-bind="{
                 responseData: firstBanner,
-                apiUrl: $apiLinkType.listTwoBannersApiLink,
+                apiUrl: $apiLinkType.listTwoBannersApiLink.apiUrl,
+                modelUrl: $apiLinkType.listTwoBannersApiLink.modelUrl,
                 title: 'Two Banners Model',
                 iconCustomStyle: 'position:absolute; top: 132px; right:0; z-index:9',
                 variant: 'warning',

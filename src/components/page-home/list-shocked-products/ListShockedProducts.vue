@@ -32,7 +32,8 @@
             id="list-shocked-products"
             v-bind="{
                 responseData: model,
-                apiUrl: $apiLinkType.listTwoBannersApiLink,
+                apiUrl: $apiLinkType.listShockedProductsApiLink.apiUrl,
+                modelUrl: $apiLinkType.listShockedProductsApiLink.modelUrl,
                 title: 'Product Model',
                 iconCustomStyle: 'position: absolute; top: 495px; right: 5px; z-index: 9',
                 variant: 'warning',
